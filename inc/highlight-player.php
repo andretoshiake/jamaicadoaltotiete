@@ -118,7 +118,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <img class="img-fluid" src="<?php echo esc_url($player['image']['url']); ?>">
+                            <img class="img-fluid" src="<?php echo ( $player['image'] ) ? esc_url($player['image']['url']) : get_template_directory_uri() . '/img/nopicture.png'; ?>">
                         </div>
                     </div>
                 </div>
