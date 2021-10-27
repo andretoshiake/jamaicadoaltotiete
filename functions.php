@@ -8,99 +8,99 @@
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+    // Replace the version number of the theme on each release.
+    define( '_S_VERSION', '1.0.0' );
 }
 
 if ( ! function_exists( 'jat_setup' ) ) :
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
-	 */
-	function jat_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on JAT, use a find and replace
-		 * to change 'jat' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'jat', get_template_directory() . '/languages' );
+    /**
+     * Sets up theme defaults and registers support for various WordPress features.
+     *
+     * Note that this function is hooked into the after_setup_theme hook, which
+     * runs before the init hook. The init hook is too late for some features, such
+     * as indicating support for post thumbnails.
+     */
+    function jat_setup() {
+        /*
+         * Make theme available for translation.
+         * Translations can be filed in the /languages/ directory.
+         * If you're building a theme based on JAT, use a find and replace
+         * to change 'jat' to the name of your theme in all the template files.
+         */
+        load_theme_textdomain( 'jat', get_template_directory() . '/languages' );
 
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+        // Add default posts and comments RSS feed links to head.
+        add_theme_support( 'automatic-feed-links' );
 
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
+        /*
+         * Let WordPress manage the document title.
+         * By adding theme support, we declare that this theme does not use a
+         * hard-coded <title> tag in the document head, and expect WordPress to
+         * provide it for us.
+         */
+        add_theme_support( 'title-tag' );
 
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
-		add_theme_support( 'post-thumbnails' );
+        /*
+         * Enable support for Post Thumbnails on posts and pages.
+         *
+         * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+         */
+        add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus(
-			array(
-				'menu-1' => esc_html__( 'Primary', 'jat' ),
-			)
-		);
+        // This theme uses wp_nav_menu() in one location.
+        register_nav_menus(
+            array(
+                'menu-1' => esc_html__( 'Primary', 'jat' ),
+            )
+        );
 
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
-		add_theme_support(
-			'html5',
-			array(
-				'search-form',
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
-				'style',
-				'script',
-			)
-		);
+        /*
+         * Switch default core markup for search form, comment form, and comments
+         * to output valid HTML5.
+         */
+        add_theme_support(
+            'html5',
+            array(
+                'search-form',
+                'comment-form',
+                'comment-list',
+                'gallery',
+                'caption',
+                'style',
+                'script',
+            )
+        );
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'jat_custom_background_args',
-				array(
-					'default-color' => 'ffffff',
-					'default-image' => '',
-				)
-			)
-		);
+        // Set up the WordPress core custom background feature.
+        add_theme_support(
+            'custom-background',
+            apply_filters(
+                'jat_custom_background_args',
+                array(
+                    'default-color' => 'ffffff',
+                    'default-image' => '',
+                )
+            )
+        );
 
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+        // Add theme support for selective refresh for widgets.
+        add_theme_support( 'customize-selective-refresh-widgets' );
 
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support(
-			'custom-logo',
-			array(
-				'height'      => 250,
-				'width'       => 250,
-				'flex-width'  => true,
-				'flex-height' => true,
-			)
-		);
-	}
+        /**
+         * Add support for core custom logo.
+         *
+         * @link https://codex.wordpress.org/Theme_Logo
+         */
+        add_theme_support(
+            'custom-logo',
+            array(
+                'height'      => 250,
+                'width'       => 250,
+                'flex-width'  => true,
+                'flex-height' => true,
+            )
+        );
+    }
 endif;
 add_action( 'after_setup_theme', 'jat_setup' );
 
@@ -112,7 +112,7 @@ add_action( 'after_setup_theme', 'jat_setup' );
  * @global int $content_width
  */
 function jat_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'jat_content_width', 640 );
+    $GLOBALS['content_width'] = apply_filters( 'jat_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'jat_content_width', 0 );
 
@@ -122,17 +122,17 @@ add_action( 'after_setup_theme', 'jat_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function jat_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'jat' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'jat' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Sidebar', 'jat' ),
+            'id'            => 'sidebar-1',
+            'description'   => esc_html__( 'Add widgets here.', 'jat' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
 }
 add_action( 'widgets_init', 'jat_widgets_init' );
 
@@ -140,20 +140,20 @@ add_action( 'widgets_init', 'jat_widgets_init' );
  * Enqueue scripts and styles.
  */
 function jat_scripts() {
-	wp_enqueue_style( 'jat-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'jat-theme-style', get_template_directory_uri() . '/css/theme.css', array(), _S_VERSION );
+    wp_enqueue_style( 'jat-style', get_stylesheet_uri(), array(), _S_VERSION );
+    wp_enqueue_style( 'jat-theme-style', get_template_directory_uri() . '/css/theme.css', array(), _S_VERSION );
     // wp_enqueue_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.1.0/dist/css/bootstrap.min.css', array(), _S_VERSION );
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap/bootstrap.css', array(), _S_VERSION );
-	wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', array(), _S_VERSION );
+    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap/bootstrap.css', array(), _S_VERSION );
+    wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', array(), _S_VERSION );
     wp_enqueue_style( 'selectpicker', 'https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css', array(), _S_VERSION );
-	wp_style_add_data( 'jat-style', 'rtl', 'replace' );
+    wp_style_add_data( 'jat-style', 'rtl', 'replace' );
     
     wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'jat-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'jat-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
     // wp_enqueue_script( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.1.0/dist/js/bootstrap.bundle.min.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap/bootstrap.bundle.min.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'selectpicker', 'https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'jat-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'jat-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true );
     
     $script_data = array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
@@ -162,9 +162,9 @@ function jat_scripts() {
     
     wp_localize_script( 'jat-scripts', 'jat_ajax_object', $script_data );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+        wp_enqueue_script( 'comment-reply' );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'jat_scripts' );
 
@@ -261,6 +261,7 @@ function jat_register_custom_post_types() {
     'labels'            => $descPlayer,
     'public'            => true,
     'hierarchical'      => false,
+    'has_archive'       => true,
     'menu_position'     => 12,
     'supports'          => array('title'),
     'menu_icon'         => 'dashicons-groups'
@@ -294,7 +295,7 @@ function jat_register_custom_post_types() {
   register_post_type( 'matches' , $argsMatch );
     
   // Skills
-  $descMatch = array(
+  $descSkill = array(
     'name'               => 'Atributos',
     'singular_name'      => 'Atributos',
     'add_new'            => 'Adicionar atributos',
@@ -309,15 +310,15 @@ function jat_register_custom_post_types() {
     'menu_name'          => 'Atributos',
     'all_items'          => 'Todos os atributos'
   );
-  $argsMatch = array(
-    'labels'            => $descMatch,
+  $argsSkill = array(
+    'labels'            => $descSkill,
     'public'            => true,
     'hierarchical'      => false,
     'menu_position'     => 13,
     'supports'          => array('title'),
     'menu_icon'         => 'dashicons-star-filled'
   );
-  register_post_type( 'skills' , $argsMatch );
+  register_post_type( 'skills' , $argsSkill );
     
   flush_rewrite_rules();
 }
@@ -447,7 +448,7 @@ add_filter('parse_query', 'parse_query_filter_level');
  * Register Custom Navigation Walker
  */
 function register_navwalker(){
-	require get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+    require get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 }
 add_action( 'after_setup_theme', 'register_navwalker' );
 
@@ -541,8 +542,6 @@ function jat_template_redirect() {
     $current_url = home_url( add_query_arg( array(), $wp->request ) );
     $current_slug = add_query_arg( array(), $wp->request );
 
-    // echo "<pre>"; print_r($wp); echo "</pre>"; die();
-
     if ( 'season' == $wp->request ) {
         $terms = get_terms( array(
             'taxonomy' => 'season',
@@ -559,20 +558,46 @@ function jat_template_redirect() {
 add_filter( 'template_redirect', 'jat_template_redirect' );
  
 function jat_template_include( $template ) {
-  global $wp;
+    global $wp;
+    $current_url = home_url( add_query_arg( array(), $wp->request ) );
+    $current_slug = add_query_arg( array(), $wp->request );
     
-  if ( 'players' == $wp->request ) {
-    $time = $_GET['time'];
+    if ( 'players' == $wp->request ) {
+        $time = $_GET['time'];
 
-    if ( $time == 1 || $time == 2 ) {
-      $template = dirname($template) . '/template-parts/content-team' . $time . '.php';
-      status_header(200); // force status to 200 - OK
+        if ( $time == 1 || $time == 2 ) {
+            $template = dirname($template) . '/template-parts/content-team' . $time . '.php';
+
+            if ( $time == 2 ) {
+                add_filter( 'document_title_parts', function($title_parts) {
+                    $title_parts['title'] = "Rachão";
+                    return $title_parts;
+                });
+            }
+
+            status_header(200); // force status to 200 - OK
+        } else {
+            $redirect = $current_url.'/?time=1';
+            wp_redirect($redirect);
+            exit();
+        }
     }
-  }
     
-  return $template;
+    return $template;
 }
 add_filter( 'template_include', 'jat_template_include' );
+
+function jat_title_tag($title_parts) {
+    global $template;
+    
+    if ( 'content-season.php' == basename($template) ) {
+        $obj = get_queried_object();
+        $title_parts['title'] = "Temporada ".$obj->slug;
+    }
+    
+    return $title_parts;
+}
+add_filter( 'document_title_parts', 'jat_title_tag' );
 
 function load_match_info_ajax_callback() {
     check_ajax_referer('view_match_info', 'nonce');
@@ -685,6 +710,6 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
+    require get_template_directory() . '/inc/jetpack.php';
 }
 

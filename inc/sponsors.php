@@ -14,7 +14,7 @@
             </a>
         </div>
         <div class="col-md-3" align="center">
-            <a href="#" target="_blank">
+            <a href="https://www.instagram.com/salvatori.svtr/" target="_blank">
                 <img src="<?php echo get_template_directory_uri() . '/img/salvatori.png'; ?>" style="width: 75%;">
             </a>
         </div>
