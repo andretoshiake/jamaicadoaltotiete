@@ -105,7 +105,11 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm-12" align="center">
-                                        <p class="depoimento">"<?php echo $player['slogan']; ?>"</p> 
+                                        <?php if ( $player['slogan'] ) : ?>
+                                        <p class="depoimento">"<?php echo $player['slogan']; ?>"</p>
+                                        <?php else : ?>
+                                        <p class="depoimento"></p>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
