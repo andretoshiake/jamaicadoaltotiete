@@ -17,7 +17,7 @@ $args = array(
     'post_status' => 'publish',
     'posts_per_page' => -1,
     'meta_key' => 'fields_number',
-    'orderby' => 'meta_value',
+    'orderby' => 'meta_value_num',
     'order'	 => 'ASC',
     'meta_query' => array(
         array(
