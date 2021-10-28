@@ -63,6 +63,7 @@ endif;
 
 $terms = get_terms( array(
     'taxonomy' => 'season',
+    'order' => 'DESC',
     'hide_empty' => false,
 ) );
 
