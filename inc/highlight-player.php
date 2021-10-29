@@ -38,6 +38,22 @@
                 $player_total_assists = 0;
                 $player_total_blocks = 0;
           
+                $args = array(
+                    'post_type' => 'matches',
+                    'post_status' => 'publish',
+                    'posts_per_page' => -1,
+                    'meta_query' => array(
+                        array(
+                            'key' => 'fields_players',
+                            'value' => serialize(strval($obj->ID)),
+                            'compare' => 'LIKE'
+                        )
+                    )
+                );
+
+                $query = new WP_Query($args);
+                $player_total_matches = $query->found_posts;
+          
                 // Find connected players
                 $connected = new WP_Query( array(
                     'connected_type' => 'matches_to_players',
@@ -45,7 +61,6 @@
                     'nopaging' => true,
                     // 'suppress_filters' => false
                 ) );        
-                $player_total_matches = $connected->found_posts;
 
                 if ( $connected->have_posts() ) :
                     while( $connected->have_posts() ) : $connected->the_post();
