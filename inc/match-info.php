@@ -24,23 +24,29 @@ if ( $connected->have_posts() ) :
             $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
             $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
 
-            $player_goals[] = array(
-                'player' => $player,
-                'total'  => $goals
-            );
+            if ( $goals ) {
+                $player_goals[] = array(
+                    'player' => $player,
+                    'total'  => $goals
+                );
+            }
 
-            $player_assists[] = array(
-                'player'  => $player,
-                'total' => $assists
-            );
+            if ( $assists ) {
+                $player_assists[] = array(
+                    'player'  => $player,
+                    'total' => $assists
+                );
+            }
         endif;
     endwhile;
 endif;
 
 // echo "<pre>"; print_r($player_goals); echo "</pre>"; die();
+// echo "<pre>"; print_r($player_assists); echo "</pre>"; die();
 
 ?>
 <div class="container">
+    <?php if ( $player_goals ) : ?>
     <table>
         <tr>
             <th>Gols</th>
@@ -51,6 +57,7 @@ endif;
         </tr>
         <?php endforeach; ?>
     </table>
+    <?php endif; ?>
     <?php if ( $player_assists ) : ?>
     <table>
         <tr>
