@@ -173,15 +173,34 @@ $terms = get_terms( array(
                     $player_total_blocks = 0;
               
                     $args = array(
+                        'post_type' => 'matches',
+                        'post_status' => 'publish',
+                        'posts_per_page' => -1,
+                        'meta_query' => array(
+                            array(
+                                'key' => 'fields_players',
+                                'value' => serialize(strval($obj->ID)),
+                                'compare' => 'LIKE'
+                            ),
+                            array(
+                                'key' => 'fields_season',
+                                'value' => $term->term_id,
+                                'compare' => '='
+                            )
+                        )
+                    );
+
+                    $result = new WP_Query($args);
+                    $player_total_matches = $result->found_posts;
+                    $ptm = $ptm + $player_total_matches;
+              
+                    $args = array(
                         'connected_type' => 'matches_to_players',
                         'connected_items' => $obj,
                         'nopaging' => true,
                         'post_type' => 'matches',
                         'post_status' => 'publish',
                         'posts_per_page' => -1,
-                        'order'   => 'ASC',
-                        'orderby'   => 'meta_value',
-                        'meta_key'  => 'fields_date',
                         'meta_query' => array(
                             array(
                                 'key' => 'fields_players',
@@ -196,9 +215,8 @@ $terms = get_terms( array(
                         )
                     );
               
+                    $result = null;
                     $result = new WP_Query($args);
-                    $player_total_matches = $result->found_posts;
-                    $ptm = $ptm + $player_total_matches;
                             
                     if ( $result->have_posts() ) :
                         while( $result->have_posts() ) : $result->the_post();
