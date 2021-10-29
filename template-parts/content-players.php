@@ -126,26 +126,26 @@ $terms = get_terms( array(
             <h5>Jogos</h5>
             <div class="progress">
                 <?php $percentage = ($player_total_matches / $total_matches) * 100; ?>
-                <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo $player_total_matches; ?></div>
+                <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_matches > 0 ) ? $player_total_matches : ''; ?></div>
             </div>
             <br />
             <?php if ( 'goleiro' == $player['position'] ) : ?>
                 <h5>Defesas</h5>
                 <div class="progress">
                     <?php $percentage = ($player_total_blocks / $total_blocks) * 100; ?>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo $player_total_blocks; ?></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_blocks > 0 ) ? $player_total_blocks : ''; ?></div>
                 </div>
             <?php else : ?>
                 <h5>Gols</h5>
                 <div class="progress">
                     <?php $percentage = ($player_total_goals / $total_goals) * 100; ?>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo $player_total_goals; ?></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_goals > 0 ) ? $player_total_goals : ''; ?></div>
                 </div>
                 <br />
                 <h5>Assistências</h5>
                 <div class="progress">
                     <?php $percentage = ($player_total_assists / $total_assists) * 100; ?>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><?php echo $player_total_assists; ?></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_assists > 0 ) ? $player_total_assists : ''; ?></div>
                 </div>
             <?php endif; ?>
         </div>
