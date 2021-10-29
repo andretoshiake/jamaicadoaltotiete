@@ -16,9 +16,12 @@ $player_total_goals = 0;
 $player_total_assists = 0;
 $player_total_blocks = 0;
 
-$total_goals   = $wpdb->get_var( "SELECT sum(meta_value) FROM ".$wpdb->prefix."p2pmeta WHERE meta_key = 'goals'" );
-$total_assists = $wpdb->get_var( "SELECT sum(meta_value) FROM ".$wpdb->prefix."p2pmeta WHERE meta_key = 'assists'" );
-$total_blocks  = $wpdb->get_var( "SELECT sum(meta_value) FROM ".$wpdb->prefix."p2pmeta WHERE meta_key = 'blocks'" );
+$p2p_goals   = $wpdb->get_var( "SELECT sum(meta_value) FROM ".$wpdb->prefix."p2pmeta WHERE meta_key = 'goals'" );
+$p2p_assists = $wpdb->get_var( "SELECT sum(meta_value) FROM ".$wpdb->prefix."p2pmeta WHERE meta_key = 'assists'" );
+$p2p_blocks  = $wpdb->get_var( "SELECT sum(meta_value) FROM ".$wpdb->prefix."p2pmeta WHERE meta_key = 'blocks'" );
+$total_goals   = ( $p2p_goals ) ? $p2p_goals : 0;
+$total_assists = ( $p2p_assists ) ? $p2p_assists : 0;
+$total_blocks  = ( $p2p_blocks ) ? $p2p_blocks : 0;
 
 $args = array(
     'post_type' => 'matches',
