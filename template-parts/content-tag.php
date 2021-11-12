@@ -15,9 +15,11 @@
             // $title = get_sub_field('title');
             ?>
             <div class="card" onclick="location='<?php the_permalink(); ?>'">
-                <div class="jat-thumb">
-                    <img class="card-img-top" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo esc_html( get_the_title() ); ?>" >
-                </div>
+                <?php if ( has_post_thumbnail() ) : ?>
+                    <div class="jat-thumb">
+                        <img class="card-img-top" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo esc_html( get_the_title() ); ?>" >
+                    </div>
+                <?php endif; ?>
                 <div class="card-body">
                     <h5 class="card-title"><?php echo wp_trim_words( get_the_title(), 10, '...' ); ?></h5>
                     <?php the_excerpt(); ?>
