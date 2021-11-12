@@ -599,6 +599,11 @@ function jat_title_tag($title_parts) {
 }
 add_filter( 'document_title_parts', 'jat_title_tag' );
 
+function jat_excerpt_length($length){
+    return 20;
+}
+add_filter('excerpt_length', 'jat_excerpt_length');
+
 function load_match_info_ajax_callback() {
     check_ajax_referer('view_match_info', 'nonce');
     
@@ -618,6 +623,37 @@ function load_match_info_ajax_callback() {
 }
 add_action('wp_ajax_load_match_info_ajax_callback', 'load_match_info_ajax_callback');
 add_action('wp_ajax_nopriv_load_match_info_ajax_callback', 'load_match_info_ajax_callback');
+
+function wiaw_pagenavi_to_bootstrap($html) {
+    $out = '';
+    $out = str_replace('<div','',$html);
+    $out = str_replace('class=\'wp-pagenavi\' role=\'navigation\'>','',$out);
+    $out = str_replace('<a','<li class="page-item"><a class="page-link"',$out);
+    $out = str_replace('</a>','</a></li>',$out);
+    $out = str_replace('<span aria-current=\'page\' class=\'current\'','<li aria-current="page" class="page-item active"><span class="page-link current"',$out);
+    $out = str_replace('<span class=\'pages\'','<li class="page-item"><span class="page-link pages"',$out);
+    $out = str_replace('<span class=\'extend\'','<li class="page-item"><span class="page-link extend"',$out);  
+    $out = str_replace('</span>','</span></li>',$out);
+    $out = str_replace('</div>','',$out);
+    return '<ul class="pagination" role="navigation">'.$out.'</ul>';
+}
+add_filter( 'wp_pagenavi', 'wiaw_pagenavi_to_bootstrap', 10, 2 );
+
+function search_filter($query) {
+    if ($query->is_search) {
+        $query->set('post_type', 'post');
+    }
+    return $query;
+}
+add_filter('pre_get_posts','search_filter');
+
+// Change posts per page in category/tag template
+function cat_tag_posts_per_page( $query ) {
+	if( $query->is_main_query() && (is_category() || is_tag()) && !is_admin() ) {
+		$query->set( 'posts_per_page', '10' );
+	}
+}
+add_action( 'pre_get_posts', 'cat_tag_posts_per_page' );
 
 /**
  * Menu BootStrap 5

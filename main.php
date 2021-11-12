@@ -11,6 +11,8 @@ get_header();
     <!--Start: Conteúdo-->
     <?php get_template_part('inc/highlight-first'); ?>
 
+    <?php get_template_part('inc/news'); ?>
+
     <?php get_template_part('inc/highlight-second'); ?>
 
     <?php get_template_part('inc/highlight-third'); ?>

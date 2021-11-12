@@ -91,10 +91,12 @@ get_header();
                                 <th scope="row"><?php echo dirname($match['date']); ?></th>
                                 <td><?php echo ( 'mandante' == $match['local'] ) ? 'JAT' : $match['team']; ?></td>
                                 <td><?php echo $match['goals_team1'] . ' x ' . $match['goals_team2']; ?></td>
-                                <td><?php echo ( 'visitante' == $match['local'] ) ? 'JAT' : $match['team']; ?></td>
+                                <td><?php echo ( 'visitante' == $match['local']  ) ? 'JAT' : $match['team']; ?></td>
                                 <td>
-                                <!-- Botão para ativar a modal -->
-                                    <button type="button" class="btn btn-sm btn-ajax" data-toggle="modal" data-target="#modal-info" data-match="<?php the_ID(); ?>">Veja Mais...</button>
+                                    <?php if ( ( $match['goals_team1'] > 0 && 'mandante' == $match['local'] ) || ( $match['goals_team2'] > 0 && 'visitante' == $match['local'] ) ) : ?>
+                                        <!-- Botão para ativar a modal -->
+                                        <button type="button" class="btn btn-sm btn-ajax" data-toggle="modal" data-target="#modal-info" data-match="<?php the_ID(); ?>">Veja Mais...</button>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                             <?php endwhile; ?>

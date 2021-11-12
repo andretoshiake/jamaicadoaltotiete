@@ -39,13 +39,13 @@ add_action( 'wp_head', 'jat_pingback_header' );
 if ( !function_exists('get_player_position') ) {
     function get_player_position($value){
         $position = array(
-            'goleiro'      => __( 'Goleiro', 'jat' ),
-            'zagueiro'     => __( 'Zagueiro', 'jat' ),
-            'lateraldir'   => __( 'Lateral Direito', 'jat' ),
-            'lateralesq'   => __( 'Lateral Esquerdo', 'jat' ),
-            'volante'      => __( 'Volante', 'jat' ),
-            'meiocampista' => __( 'Meio Campista', 'jat' ),
-            'atacante'     => __( 'Atacante', 'jat' ),
+            'goleiro'    => __( 'Goleiro', 'jat' ),
+            'zagueiro'   => __( 'Zagueiro', 'jat' ),
+            'lateraldir' => __( 'Lateral Direito', 'jat' ),
+            'lateralesq' => __( 'Lateral Esquerdo', 'jat' ),
+            'volante'    => __( 'Volante', 'jat' ),
+            'meiocampo'  => __( 'Meio Campista', 'jat' ),
+            'atacante'   => __( 'Atacante', 'jat' ),
         );
         
         return $position[$value];

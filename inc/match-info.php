@@ -30,13 +30,19 @@ if ( $connected->have_posts() ) :
                     'total'  => $goals
                 );
             }
+            usort($player_goals, function ($item1, $item2) {
+                return $item1['player'] <=> $item2['player'];
+            });
 
             if ( $assists ) {
                 $player_assists[] = array(
-                    'player'  => $player,
-                    'total' => $assists
+                    'player' => $player,
+                    'total'  => $assists
                 );
             }
+            usort($player_assists, function ($item1, $item2) {
+                return $item1['player'] <=> $item2['player'];
+            });
         endif;
     endwhile;
 endif;
