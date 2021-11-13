@@ -1,5 +1,5 @@
 <?php
-    $args = array('numberposts' => 4, 'category_name' => 'destaques');
+    $args = array('numberposts' => 3);
     $posts = get_posts($args);
     // echo "<pre>"; print_r($posts); echo "</pre>"; die();
 ?>
