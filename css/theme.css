@@ -529,8 +529,14 @@ body.single-players {
     cursor: pointer;
 }
 
-.jat-news .card-deck {
+.jat-news .card-deck,
+.h-second .card-deck {
     justify-content: center;
+}
+
+.jat-news .card-deck .card,
+.h-second .card-deck .card {
+    max-width: 400px;
 }
 
 .h-second .card {

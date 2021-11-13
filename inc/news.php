@@ -17,11 +17,13 @@
                 // $title = get_sub_field('title');
                 ?>
                 <div class="card" onclick="location='<?php the_permalink(); ?>'">
-                    <div class="hover-zoom">
-                        <a href="<?php the_permalink(); ?>">
-                            <img class="card-img-top" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo esc_html( get_the_title() ); ?>" >
-                        </a>
-                    </div>
+                    <?php if ( has_post_thumbnail() ) : ?>
+                        <div class="hover-zoom">
+                            <a href="<?php the_permalink(); ?>">
+                                <img class="card-img-top" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo esc_html( get_the_title() ); ?>" >
+                            </a>
+                        </div>
+                    <?php endif; ?>
                     <div class="card-body" align="center" style="border-bottom: 8px solid green;">
                         <h5 class="card-title" align="center"><?php echo wp_trim_words( get_the_title(), 10, '...' ); ?></h5>
                         <p class="card-text" align="center"><?php the_excerpt(); ?></p>
