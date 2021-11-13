@@ -14,7 +14,6 @@
     <div class="card-deck">
         <?php
             foreach ( $posts as $post ) : setup_postdata( $post );
-                // $title = get_sub_field('title');
                 ?>
                 <div class="card" onclick="location='<?php the_permalink(); ?>'">
                     <?php if ( has_post_thumbnail() ) : ?>
