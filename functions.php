@@ -640,7 +640,7 @@ function wiaw_pagenavi_to_bootstrap($html) {
 add_filter( 'wp_pagenavi', 'wiaw_pagenavi_to_bootstrap', 10, 2 );
 
 function search_filter($query) {
-    if ($query->is_search) {
+    if ( $query->is_search && !is_admin() ) {
         $query->set('post_type', 'post');
     }
     return $query;
