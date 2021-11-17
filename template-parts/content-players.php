@@ -75,9 +75,7 @@ $terms = get_terms( array(
 ?>
 
 <div class="jumbotron" style="background-image: linear-gradient(to bottom, rgba(247, 217, 2), rgba(255, 255, 204, 0.73))">
-    <div class="container">
-        <img src="<?php echo esc_url($player['banner']['url']); ?>" style="width: 100%;" />
-    </div>
+    <img src="<?php echo esc_url($player['banner']['url']); ?>" />
 </div>
 
 <h2 style="font-weight: 700; text-align: center; text-transform: uppercase;"><?php echo get_the_title($obj->ID); ?></h2>

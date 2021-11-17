@@ -653,7 +653,7 @@ function cat_tag_posts_per_page( $query ) {
 		$query->set( 'posts_per_page', '10' );
 	}
 }
-add_action( 'pre_get_posts', 'cat_tag_posts_per_page' );
+// add_action( 'pre_get_posts', 'cat_tag_posts_per_page' );
 
 /**
  * Menu BootStrap 5

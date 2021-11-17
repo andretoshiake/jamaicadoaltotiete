@@ -177,15 +177,21 @@ body.single-players {
     background: #F4F4F4 !important;
 }
 
-.single-players .jumbotron {
+body.single-players .jumbotron {
     padding: 0;
 }
 
-.single-players #skills table {
+body.single-players .jumbotron img {
+    margin: 0 auto;
+    display: block;
+    max-height: 600px;
+}
+
+body.single-players #skills table {
     margin: 0;
 }
 
-.single-players .post-navigation {
+body.single-players .post-navigation {
     display: none;
 }
 
@@ -244,6 +250,11 @@ body.single-players {
     justify-content: center;
 }
 
+.jat-player .tablinks {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .spinner-border {
     display: inline-block;
     width: 2rem;
@@ -260,6 +271,7 @@ body.single-players {
     display: block;
     margin-top: 1rem;
 }
+
 .fundo {
 	position: absolute;
     left: 0;
@@ -917,5 +929,12 @@ p:empty {
 
     p {
         padding: 10px !important;
+    }
+}
+
+@media (max-width: 450px) {
+    body.single-players .jumbotron img {
+        height: 310px;
+        object-fit: cover;
     }
 }
