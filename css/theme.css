@@ -931,10 +931,3 @@ p:empty {
         padding: 10px !important;
     }
 }
-
-@media (max-width: 450px) {
-    body.single-players .jumbotron img {
-        height: 310px;
-        object-fit: cover;
-    }
-}
