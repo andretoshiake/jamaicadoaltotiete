@@ -47,6 +47,11 @@
                             'key' => 'fields_players',
                             'value' => serialize(strval($obj->ID)),
                             'compare' => 'LIKE'
+                        ),
+                        array(
+                            'key' => 'fields_context',
+                            'value' => 'oficial',
+                            'compare' => 'LIKE'
                         )
                     )
                 );
@@ -59,7 +64,13 @@
                     'connected_type' => 'matches_to_players',
                     'connected_items' => $post,
                     'nopaging' => true,
-                    // 'suppress_filters' => false
+                    'meta_query' => array(
+                        array(
+                            'key' => 'fields_context',
+                            'value' => 'oficial',
+                            'compare' => 'LIKE'
+                        )
+                    )
                 ) );        
 
                 if ( $connected->have_posts() ) :
@@ -93,25 +104,25 @@
                                 <div class="row" align="center">
                                     <?php if ( 'goleiro' == $player['position'] ) : ?>
                                         <div class="col-sm-6" style="border-right: 2px solid #005000; height: 150px;">
-                                            <p class="score"> <?php echo $player_total_blocks; ?> </p> 
-                                            <p>Defesas</p>
-                                        </div>
-                                        <div class="col-sm-6">
                                             <p class="score"> <?php echo $player_total_matches; ?> </p> 
                                             <p>Jogos</p>
                                         </div>
+                                        <div class="col-sm-6">
+                                            <p class="score"> <?php echo $player_total_blocks; ?> </p> 
+                                            <p>Defesas</p>
+                                        </div>
                                     <?php else : ?>
+                                        <div class="col-sm-4" style="border-right: 2px solid #005000; height: 150px;">
+                                            <p class="score"> <?php echo $player_total_matches; ?> </p> 
+                                            <p>Jogos</p>
+                                        </div>
                                         <div class="col-sm-4" style="border-right: 2px solid #005000; height: 150px;">
                                             <p class="score"> <?php echo $player_total_goals; ?> </p> 
                                             <p>Gols</p>
                                         </div>
-                                        <div class="col-sm-4" style="border-right: 2px solid #005000; height: 150px;">
+                                        <div class="col-sm-4">
                                             <p class="score"> <?php echo $player_total_assists; ?> </p>
                                             <p>Assistências</p>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <p class="score"> <?php echo $player_total_matches; ?> </p> 
-                                            <p>Jogos</p>
                                         </div>
                                     <?php endif; ?>
                                 </div>

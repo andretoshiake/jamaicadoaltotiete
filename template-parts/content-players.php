@@ -8,20 +8,46 @@
  */
 
 global $wpdb;
-
 $obj = $post;
-
 $player = get_field('fields');
-$player_total_goals = 0;
-$player_total_assists = 0;
-$player_total_blocks = 0;
 
+$p_ids = get_posts(array(
+    'fields' => 'ids', // Only get post IDs
+    'post_type' => 'players',
+    'posts_per_page' => -1
+));
+
+/*
 $p2p_goals   = $wpdb->get_var( "SELECT sum(meta_value) FROM ".$wpdb->prefix."p2pmeta WHERE meta_key = 'goals'" );
 $p2p_assists = $wpdb->get_var( "SELECT sum(meta_value) FROM ".$wpdb->prefix."p2pmeta WHERE meta_key = 'assists'" );
 $p2p_blocks  = $wpdb->get_var( "SELECT sum(meta_value) FROM ".$wpdb->prefix."p2pmeta WHERE meta_key = 'blocks'" );
 $total_goals   = ( $p2p_goals ) ? $p2p_goals : 0;
 $total_assists = ( $p2p_assists ) ? $p2p_assists : 0;
 $total_blocks  = ( $p2p_blocks ) ? $p2p_blocks : 0;
+*/
+
+/********** Start: Stats Jogos Oficiais **********/
+$total_goals_oficial   = 0;
+$total_assists_oficial = 0;
+$total_blocks_oficial  = 0;
+$player_total_goals_oficial   = 0;
+$player_total_assists_oficial = 0;
+$player_total_blocks_oficial  = 0;
+
+$args = array(
+    'post_type' => 'matches',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'meta_query' => array(
+        array(
+            'key' => 'fields_context',
+            'value' => 'oficial',
+            'compare' => 'LIKE'
+        )
+    )
+);
+$result = new WP_Query($args);
+$total_matches_oficial = $result->found_posts;
 
 $args = array(
     'post_type' => 'matches',
@@ -35,22 +61,62 @@ $args = array(
             'key' => 'fields_players',
             'value' => serialize(strval($obj->ID)),
             'compare' => 'LIKE'
+        ),
+        array(
+            'key' => 'fields_context',
+            'value' => 'oficial',
+            'compare' => 'LIKE'
         )
     )
 );
-
+$result = null;
 $result = new WP_Query($args);
-$player_total_matches = $result->found_posts;
-$total_matches = wp_count_posts( 'matches' )->publish;
+$player_total_matches_oficial = $result->found_posts;
 
-// echo "<pre>"; print_r($result); echo "</pre>"; die();
+$args = array(
+    'post_type' => 'matches',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'meta_query' => array(
+        array(
+            'key' => 'fields_context',
+            'value' => 'oficial',
+            'compare' => 'LIKE'
+        )
+    )
+);
+$connected = null;
+$connected = new WP_Query($args);
+
+p2p_type( 'matches_to_players' )->each_connected( $connected );
+
+if ( $connected->have_posts() ) :
+    while( $connected->have_posts() ) : $connected->the_post();
+        foreach ( $post->connected as $post ) : setup_postdata( $post );
+            $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
+            $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
+            $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
+            $total_goals_oficial   = $total_goals_oficial + $goals;
+            $total_assists_oficial = $total_assists_oficial + $assists;
+            $total_blocks_oficial  = $total_blocks_oficial + $blocks;
+        endforeach;
+        wp_reset_postdata(); // set $post back to original post
+    endwhile;
+endif;
 
 // Find connected players
+$connected = null;
 $connected = new WP_Query( array(
     'connected_type' => 'matches_to_players',
     'connected_items' => $obj,
     'nopaging' => true,
-    // 'suppress_filters' => false
+    'meta_query' => array(
+        array(
+            'key' => 'fields_context',
+            'value' => 'oficial',
+            'compare' => 'LIKE'
+        )
+    )
 ) );
 
 if ( $connected->have_posts() ) :
@@ -58,11 +124,118 @@ if ( $connected->have_posts() ) :
         $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
         $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
         $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
-        $player_total_goals   = $player_total_goals + $goals;
-        $player_total_assists = $player_total_assists + $assists;
-        $player_total_blocks  = $player_total_blocks + $blocks;
+        $player_total_goals_oficial   = $player_total_goals_oficial + $goals;
+        $player_total_assists_oficial = $player_total_assists_oficial + $assists;
+        $player_total_blocks_oficial  = $player_total_blocks_oficial + $blocks;
     endwhile;
 endif;
+/********** End: Stats Jogos Oficiais **********/
+
+/********** Start: Stats Rachão **********/
+$total_goals_rachao   = 0;
+$total_assists_rachao = 0;
+$total_blocks_rachao  = 0;
+$player_total_goals_rachao   = 0;
+$player_total_assists_rachao = 0;
+$player_total_blocks_rachao  = 0;
+
+$args = array(
+    'post_type' => 'matches',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'meta_query' => array(
+        array(
+            'key' => 'fields_context',
+            'value' => 'rachao',
+            'compare' => 'LIKE'
+        )
+    )
+);
+$result = null;
+$result = new WP_Query($args);
+$total_matches_rachao = $result->found_posts;
+
+$args = array(
+    'post_type' => 'matches',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'order'   => 'ASC',
+    'orderby'   => 'meta_value',
+    'meta_key'  => 'fields_date',
+    'meta_query' => array(
+        array(
+            'key' => 'fields_players',
+            'value' => serialize(strval($obj->ID)),
+            'compare' => 'LIKE'
+        ),
+        array(
+            'key' => 'fields_context',
+            'value' => 'rachao',
+            'compare' => 'LIKE'
+        )
+    )
+);
+$result = null;
+$result = new WP_Query($args);
+$player_total_matches_rachao = $result->found_posts;
+
+$args = array(
+    'post_type' => 'matches',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'meta_query' => array(
+        array(
+            'key' => 'fields_context',
+            'value' => 'rachao',
+            'compare' => 'LIKE'
+        )
+    )
+);
+$connected = null;
+$connected = new WP_Query($args);
+
+p2p_type( 'matches_to_players' )->each_connected( $connected );
+
+if ( $connected->have_posts() ) :
+    while( $connected->have_posts() ) : $connected->the_post();
+        foreach ( $post->connected as $post ) : setup_postdata( $post );
+            $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
+            $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
+            $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
+            $total_goals_rachao   = $total_goals_rachao + $goals;
+            $total_assists_rachao = $total_assists_rachao + $assists;
+            $total_blocks_rachao  = $total_blocks_rachao + $blocks;
+        endforeach;
+        wp_reset_postdata(); // set $post back to original post
+    endwhile;
+endif;
+
+// Find connected players
+$connected = null;
+$connected = new WP_Query( array(
+    'connected_type' => 'matches_to_players',
+    'connected_items' => $obj,
+    'nopaging' => true,
+    'meta_query' => array(
+        array(
+            'key' => 'fields_context',
+            'value' => 'rachao',
+            'compare' => 'LIKE'
+        )
+    )
+) );
+
+if ( $connected->have_posts() ) :
+    while( $connected->have_posts() ) : $connected->the_post();
+        $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
+        $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
+        $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
+        $player_total_goals_rachao   = $player_total_goals_rachao + $goals;
+        $player_total_assists_rachao = $player_total_assists_rachao + $assists;
+        $player_total_blocks_rachao  = $player_total_blocks_rachao + $blocks;
+    endwhile;
+endif;
+/********** End: Stats Rachão **********/
 
 $terms = get_terms( array(
     'taxonomy' => 'season',
@@ -116,34 +289,36 @@ $terms = get_terms( array(
         </div>
     </div>
     <!-- End: Aba Geral -->
-    
+
     <!-- Start: Aba Estatísticas -->
-    <div id="stats" class="tabcontent">	
+    <div id="stats" class="tabcontent">
         <br />
-        <div class="container">
+        <!-- Start: Jogos Oficiais -->
+        <div class="container section-stats">
+            <h4>JOGOS OFICIAIS</h4>
             <h5>Jogos</h5>
             <div class="progress">
-                <?php $percentage = ($player_total_matches / $total_matches) * 100; ?>
-                <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_matches > 0 ) ? $player_total_matches : ''; ?></div>
+                <?php $percentage = ($player_total_matches_oficial / $total_matches_oficial) * 100; ?>
+                <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_matches_oficial > 0 ) ? $player_total_matches_oficial : ''; ?></div>
             </div>
             <br />
             <?php if ( 'goleiro' == $player['position'] ) : ?>
                 <h5>Defesas</h5>
                 <div class="progress">
-                    <?php $percentage = ($player_total_blocks / $total_blocks) * 100; ?>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_blocks > 0 ) ? $player_total_blocks : ''; ?></div>
+                    <?php $percentage = ($player_total_blocks_oficial / $total_blocks_oficial) * 100; ?>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_blocks_oficial > 0 ) ? $player_total_blocks_oficial : ''; ?></div>
                 </div>
             <?php else : ?>
                 <h5>Gols</h5>
                 <div class="progress">
-                    <?php $percentage = ($player_total_goals / $total_goals) * 100; ?>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_goals > 0 ) ? $player_total_goals : ''; ?></div>
+                    <?php $percentage = ($player_total_goals_oficial / $total_goals_oficial) * 100; ?>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_goals_oficial > 0 ) ? $player_total_goals_oficial : ''; ?></div>
                 </div>
                 <br />
                 <h5>Assistências</h5>
                 <div class="progress">
-                    <?php $percentage = ($player_total_assists / $total_assists) * 100; ?>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_assists > 0 ) ? $player_total_assists : ''; ?></div>
+                    <?php $percentage = ($player_total_assists_oficial / $total_assists_oficial) * 100; ?>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_assists_oficial > 0 ) ? $player_total_assists_oficial : ''; ?></div>
                 </div>
             <?php endif; ?>
         </div>
@@ -184,6 +359,11 @@ $terms = get_terms( array(
                                 'key' => 'fields_season',
                                 'value' => $term->term_id,
                                 'compare' => '='
+                            ),
+                            array(
+                                'key' => 'fields_context',
+                                'value' => 'oficial',
+                                'compare' => 'LIKE'
                             )
                         )
                     );
@@ -209,6 +389,11 @@ $terms = get_terms( array(
                                 'key' => 'fields_season',
                                 'value' => $term->term_id,
                                 'compare' => '='
+                            ),
+                            array(
+                                'key' => 'fields_context',
+                                'value' => 'oficial',
+                                'compare' => 'LIKE'
                             )
                         )
                     );
@@ -253,6 +438,154 @@ $terms = get_terms( array(
               <?php endif; ?>
             </tr>
         </table>
+        <!-- End: Jogos Oficiais -->
+
+        <!-- Start: Rachão -->
+        <div class="container section-stats">
+            <h4>RACHÃO</h4>
+            <h5>Jogos</h5>
+            <div class="progress">
+                <?php $percentage = ($player_total_matches_rachao / $total_matches_rachao) * 100; ?>
+                <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_matches_rachao > 0 ) ? $player_total_matches_rachao : ''; ?></div>
+            </div>
+            <br />
+            <?php if ( 'goleiro' == $player['position'] ) : ?>
+                <h5>Defesas</h5>
+                <div class="progress">
+                    <?php $percentage = ($player_total_blocks_rachao / $total_blocks_rachao) * 100; ?>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_blocks_rachao > 0 ) ? $player_total_blocks_rachao : ''; ?></div>
+                </div>
+            <?php else : ?>
+                <h5>Gols</h5>
+                <div class="progress">
+                    <?php $percentage = ($player_total_goals_rachao / $total_goals_rachao) * 100; ?>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_goals_rachao > 0 ) ? $player_total_goals_rachao : ''; ?></div>
+                </div>
+                <br />
+                <h5>Assistências</h5>
+                <div class="progress">
+                    <?php $percentage = ($player_total_assists_rachao / $total_assists_rachao) * 100; ?>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_assists_rachao > 0 ) ? $player_total_assists_rachao : ''; ?></div>
+                </div>
+            <?php endif; ?>
+        </div>
+        <br />
+        <br />
+        <table class="table" style="text-align: center; background-color: white;"; >
+          <thead>
+            <tr>
+              <th scope="col">Temporada</th>
+              <th scope="col">Jogos</th>
+              <?php if ( 'goleiro' == $player['position'] ) : ?>
+                <th scope="col">Defesas</th>
+              <?php else : ?>
+                <th scope="col">Gols</th>
+                <th scope="col">Assist</th>
+              <?php endif; ?>
+          </tr>
+          </thead>
+          <tbody>
+            <?php $ptm = $ptg = $pta = $ptb = 0; ?>
+            <?php foreach ( $terms as $term ) : ?>
+                <?php
+                    $player_total_goals = 0;
+                    $player_total_assists = 0;
+                    $player_total_blocks = 0;
+              
+                    $args = array(
+                        'post_type' => 'matches',
+                        'post_status' => 'publish',
+                        'posts_per_page' => -1,
+                        'meta_query' => array(
+                            array(
+                                'key' => 'fields_players',
+                                'value' => serialize(strval($obj->ID)),
+                                'compare' => 'LIKE'
+                            ),
+                            array(
+                                'key' => 'fields_season',
+                                'value' => $term->term_id,
+                                'compare' => '='
+                            ),
+                            array(
+                                'key' => 'fields_context',
+                                'value' => 'rachao',
+                                'compare' => 'LIKE'
+                            )
+                        )
+                    );
+
+                    $result = new WP_Query($args);
+                    $player_total_matches = $result->found_posts;
+                    $ptm = $ptm + $player_total_matches;
+              
+                    $args = array(
+                        'connected_type' => 'matches_to_players',
+                        'connected_items' => $obj,
+                        'nopaging' => true,
+                        'post_type' => 'matches',
+                        'post_status' => 'publish',
+                        'posts_per_page' => -1,
+                        'meta_query' => array(
+                            array(
+                                'key' => 'fields_players',
+                                'value' => serialize(strval($obj->ID)),
+                                'compare' => 'LIKE'
+                            ),
+                            array(
+                                'key' => 'fields_season',
+                                'value' => $term->term_id,
+                                'compare' => '='
+                            ),
+                            array(
+                                'key' => 'fields_context',
+                                'value' => 'rachao',
+                                'compare' => 'LIKE'
+                            )
+                        )
+                    );
+              
+                    $result = null;
+                    $result = new WP_Query($args);
+                            
+                    if ( $result->have_posts() ) :
+                        while( $result->have_posts() ) : $result->the_post();
+                            $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
+                            $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
+                            $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
+                            $player_total_goals   = $player_total_goals + $goals;
+                            $player_total_assists = $player_total_assists + $assists;
+                            $player_total_blocks  = $player_total_blocks + $blocks;
+                        endwhile;
+                    endif;
+              
+                    $ptg = $ptg + $player_total_goals;
+                    $pta = $pta + $player_total_assists;
+                    $ptb = $ptb + $player_total_blocks;
+                ?>
+                <tr>
+                  <th scope="col"><strong><?php echo $term->name; ?></strong></th>	
+                  <td><?php echo ( $player_total_matches == 0 ) ? '-' : $player_total_matches; ?></td>
+                  <?php if ( 'goleiro' == $player['position'] ) : ?>
+                    <td><?php echo ( $player_total_blocks == 0 ) ? '-' : $player_total_blocks; ?></td>
+                  <?php else : ?>
+                    <td><?php echo ( $player_total_goals == 0 ) ? '-' : $player_total_goals; ?></td>
+                    <td><?php echo ( $player_total_assists == 0 ) ? '-' : $player_total_assists; ?></td>
+                  <?php endif; ?>
+                </tr>
+            <?php endforeach; ?>
+            <tr style="border-top: 2px solid black;">
+              <th scope="col"><strong>Total</strong></th>	
+              <td><?php echo ( $ptm == 0 ) ? '-' : $ptm; ?></td>
+              <?php if ( 'goleiro' == $player['position'] ) : ?>
+                <td><?php echo ( $ptb == 0 ) ? '-' : $ptb; ?></td>
+              <?php else : ?>
+                <td><?php echo ( $ptg == 0 ) ? '-' : $ptg; ?></td>
+                <td><?php echo ( $pta == 0 ) ? '-' : $pta; ?></td>
+              <?php endif; ?>
+            </tr>
+        </table>
+        <!-- End: Rachão -->
     </div>
     <!-- End: Aba Estatísticas -->
 

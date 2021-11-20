@@ -101,6 +101,7 @@ get_header();
                 <table class="table" style="text-align: center; background-color: white;";>
                   <thead>
                     <tr>
+                      <th scope="col"></th>
                       <th scope="col">Nome</th>
                       <th scope="col">Posição</th>
                       <th scope="col">Jogos</th>
@@ -117,6 +118,27 @@ get_header();
                             $player_total_goals = 0;
                             $player_total_assists = 0;
                             $player_total_blocks = 0;
+                      
+                            $args = array(
+                                'post_type' => 'matches',
+                                'post_status' => 'publish',
+                                'posts_per_page' => -1,
+                                'meta_query' => array(
+                                    array(
+                                        'key' => 'fields_players',
+                                        'value' => serialize(strval($obj->ID)),
+                                        'compare' => 'LIKE'
+                                    ),
+                                    array(
+                                        'key' => 'fields_context',
+                                        'value' => 'rachao',
+                                        'compare' => 'LIKE'
+                                    )
+                                )
+                            );
+
+                            $query = new WP_Query($args);
+                            $player_total_matches = $query->found_posts;
 
                             // Find connected players
                             $connected = new WP_Query( array(
@@ -131,7 +153,6 @@ get_header();
                                     )
                                 )
                             ) );
-                            $player_total_matches = $connected->found_posts;
 
                             if ( $connected->have_posts() ) :
                                 while( $connected->have_posts() ) : $connected->the_post();
@@ -148,6 +169,7 @@ get_header();
                         ?>
                         <?php if ( $player_total_matches > 0 ) : ?>
                         <tr>
+                          <td><a href="<?php echo get_permalink($obj->ID); ?>" title="Ver perfil do jogador" style="color: limegreen;"><i class="fas fa-bars fa-lg"></i></a></td>
                           <td><?php echo ( strlen($title) > 20 ) ? $player['nickname'] : $title; ?></td>
                           <td><?php echo get_player_position($player['position']); ?></td>
                           <td><?php echo $player_total_matches; ?></td>

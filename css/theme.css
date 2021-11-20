@@ -255,6 +255,14 @@ body.single-players .post-navigation {
     overflow: hidden;
 }
 
+.section-stats h4 {
+    background: green;
+    color: #fff !important;
+    padding: 1rem 0;
+    margin-bottom: 1em !important;
+    text-align: center;
+}
+
 .spinner-border {
     display: inline-block;
     width: 2rem;
