@@ -299,26 +299,26 @@ $terms = get_terms( array(
             <h5>Jogos</h5>
             <div class="progress">
                 <?php $percentage = ($player_total_matches_oficial / $total_matches_oficial) * 100; ?>
-                <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_matches_oficial > 0 ) ? $player_total_matches_oficial : ''; ?></div>
+                <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ceil($percentage); ?>%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_matches_oficial > 0 ) ? $player_total_matches_oficial : ''; ?></div>
             </div>
             <br />
             <?php if ( 'goleiro' == $player['position'] ) : ?>
                 <h5>Defesas</h5>
                 <div class="progress">
                     <?php $percentage = ($player_total_blocks_oficial / $total_blocks_oficial) * 100; ?>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_blocks_oficial > 0 ) ? $player_total_blocks_oficial : ''; ?></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ceil($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_blocks_oficial > 0 ) ? $player_total_blocks_oficial : ''; ?></div>
                 </div>
             <?php else : ?>
                 <h5>Gols</h5>
                 <div class="progress">
                     <?php $percentage = ($player_total_goals_oficial / $total_goals_oficial) * 100; ?>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_goals_oficial > 0 ) ? $player_total_goals_oficial : ''; ?></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ceil($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_goals_oficial > 0 ) ? $player_total_goals_oficial : ''; ?></div>
                 </div>
                 <br />
                 <h5>Assistências</h5>
                 <div class="progress">
                     <?php $percentage = ($player_total_assists_oficial / $total_assists_oficial) * 100; ?>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_assists_oficial > 0 ) ? $player_total_assists_oficial : ''; ?></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ceil($percentage); ?>%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_assists_oficial > 0 ) ? $player_total_assists_oficial : ''; ?></div>
                 </div>
             <?php endif; ?>
         </div>
@@ -446,26 +446,26 @@ $terms = get_terms( array(
             <h5>Jogos</h5>
             <div class="progress">
                 <?php $percentage = ($player_total_matches_rachao / $total_matches_rachao) * 100; ?>
-                <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_matches_rachao > 0 ) ? $player_total_matches_rachao : ''; ?></div>
+                <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ceil($percentage); ?>%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_matches_rachao > 0 ) ? $player_total_matches_rachao : ''; ?></div>
             </div>
             <br />
             <?php if ( 'goleiro' == $player['position'] ) : ?>
                 <h5>Defesas</h5>
                 <div class="progress">
                     <?php $percentage = ($player_total_blocks_rachao / $total_blocks_rachao) * 100; ?>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_blocks_rachao > 0 ) ? $player_total_blocks_rachao : ''; ?></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ceil($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_blocks_rachao > 0 ) ? $player_total_blocks_rachao : ''; ?></div>
                 </div>
             <?php else : ?>
                 <h5>Gols</h5>
                 <div class="progress">
                     <?php $percentage = ($player_total_goals_rachao / $total_goals_rachao) * 100; ?>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_goals_rachao > 0 ) ? $player_total_goals_rachao : ''; ?></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ceil($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_goals_rachao > 0 ) ? $player_total_goals_rachao : ''; ?></div>
                 </div>
                 <br />
                 <h5>Assistências</h5>
                 <div class="progress">
                     <?php $percentage = ($player_total_assists_rachao / $total_assists_rachao) * 100; ?>
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo intval($percentage); ?>%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_assists_rachao > 0 ) ? $player_total_assists_rachao : ''; ?></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ceil($percentage); ?>%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_assists_rachao > 0 ) ? $player_total_assists_rachao : ''; ?></div>
                 </div>
             <?php endif; ?>
         </div>
