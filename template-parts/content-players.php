@@ -294,6 +294,7 @@ $terms = get_terms( array(
     <div id="stats" class="tabcontent">
         <br />
         <!-- Start: Jogos Oficiais -->
+        <?php if ( $player_total_matches_oficial > 0 ) : ?>
         <div class="container section-stats">
             <h4>JOGOS OFICIAIS</h4>
             <h5>Jogos</h5>
@@ -438,9 +439,11 @@ $terms = get_terms( array(
               <?php endif; ?>
             </tr>
         </table>
+        <?php endif; ?>
         <!-- End: Jogos Oficiais -->
 
         <!-- Start: Rachão -->
+        <?php if ( $player_total_matches_rachao > 0 ) : ?>
         <div class="container section-stats">
             <h4>RACHÃO</h4>
             <h5>Jogos</h5>
@@ -585,6 +588,7 @@ $terms = get_terms( array(
               <?php endif; ?>
             </tr>
         </table>
+        <?php endif; ?>
         <!-- End: Rachão -->
     </div>
     <!-- End: Aba Estatísticas -->
