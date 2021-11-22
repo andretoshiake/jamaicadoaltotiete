@@ -5,6 +5,8 @@
  */
 
 ( function( $ ) {
+    $('[data-toggle="popover"]').popover();
+
     $('body').on('click', '.btn-ajax', function() {
         var match_id = $(this).data('match');
         $('#modal-info .modal-body .spinner-border').show();
