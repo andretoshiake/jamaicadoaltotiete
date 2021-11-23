@@ -612,18 +612,19 @@ $result = new WP_Query($args);
 if ( $result->have_posts() ) :
     while( $result->have_posts() ) : $result->the_post();
         $fields = get_field('fields');
-    
+        $skills_media = $fields['skills_media'];
+
         $skills = $fields['skills'];
-        $geral  = round(array_sum($skills) / count($skills));
-        $ritmo  = round(($skills['speed_up'] + $skills['speed']) / 2);
-        $shots  = round(($skills['accuracy'] + $skills['kick_power'] + $skills['header']) / 3);
-        $passe  = round(($skills['short_pass'] + $skills['long_pass']) / 2);
-        $drible = round(($skills['ball_control'] + $skills['ability']) / 2);
-        $defesa = round(($skills['intercepts'] + $skills['marking'] + $skills['slide']) / 3);
-        $fisico = round(($skills['stamina'] + $skills['power']) / 2);
+        $geral  = ( $skills_media['geral'] ) ? $skills_media['geral'] : round(array_sum($skills) / count($skills));
+        $ritmo  = ( $skills_media['ritmo'] ) ? $skills_media['ritmo'] : round(($skills['speed_up'] + $skills['speed']) / 2);
+        $shots  = ( $skills_media['shots'] ) ? $skills_media['shots'] : round(($skills['accuracy'] + $skills['kick_power'] + $skills['header']) / 3);
+        $passe  = ( $skills_media['passe'] ) ? $skills_media['passe'] : round(($skills['short_pass'] + $skills['long_pass']) / 2);
+        $drible = ( $skills_media['drible'] ) ? $skills_media['drible'] : round(($skills['ball_control'] + $skills['ability']) / 2);
+        $defesa = ( $skills_media['defesa'] ) ? $skills_media['defesa'] : round(($skills['intercepts'] + $skills['marking'] + $skills['slide']) / 3);
+        $fisico = ( $skills_media['fisico'] ) ? $skills_media['fisico'] : round(($skills['stamina'] + $skills['power']) / 2);
     
         $skills_goleiro = $fields['skills_goleiro'];
-        $geral_goleiro = round(array_sum($skills_goleiro) / count($skills_goleiro));
+        $geral_goleiro = ( $skills_goleiro['geral'] ) ? $skills_goleiro['geral'] : round(array_sum($skills_goleiro) / count($skills_goleiro));
     endwhile;
 endif;
 ?>
