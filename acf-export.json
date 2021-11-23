@@ -1,0 +1,1486 @@
+[
+    {
+        "key": "group_5f770c734801e",
+        "title": "Banner Fields",
+        "fields": [
+            {
+                "key": "field_5f770c7d2ac3b",
+                "label": "Fields",
+                "name": "fields",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_6157b537ca849",
+                        "label": "Nível de Destaque",
+                        "name": "level",
+                        "type": "radio",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "choices": {
+                            "1": "Primeiro",
+                            "2": "Segundo",
+                            "3": "Terceiro"
+                        },
+                        "allow_null": 0,
+                        "other_choice": 0,
+                        "default_value": "",
+                        "layout": "vertical",
+                        "return_format": "value",
+                        "save_other_choice": 0
+                    },
+                    {
+                        "key": "field_5f770cac2ac3d",
+                        "label": "Imagem",
+                        "name": "image",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_60954dc3cb20f",
+                        "label": "Título",
+                        "name": "title",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5f770ccb2ac3e",
+                        "label": "Texto",
+                        "name": "text",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5f770cd42ac3f",
+                        "label": "Link",
+                        "name": "link",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5f770ce52ac40",
+                        "label": "Window",
+                        "name": "window",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "choices": {
+                            "_self": "Self",
+                            "_blank": "Blank"
+                        },
+                        "default_value": false,
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "banners"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": false
+    },
+    {
+        "key": "group_6157c598d0f55",
+        "title": "Match Fields",
+        "fields": [
+            {
+                "key": "field_6157c5a4009f9",
+                "label": "Fields",
+                "name": "fields",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_616e4ed83eaeb",
+                        "label": "Contexto",
+                        "name": "context",
+                        "type": "radio",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "15",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "choices": {
+                            "oficial": "Oficial",
+                            "rachao": "Rachão"
+                        },
+                        "allow_null": 0,
+                        "other_choice": 0,
+                        "default_value": "",
+                        "layout": "vertical",
+                        "return_format": "value",
+                        "save_other_choice": 0
+                    },
+                    {
+                        "key": "field_6157c7bb009fc",
+                        "label": "Local",
+                        "name": "local",
+                        "type": "radio",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_616e4ed83eaeb",
+                                    "operator": "==",
+                                    "value": "oficial"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "15",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "choices": {
+                            "mandante": "Mandante",
+                            "visitante": "Visitante"
+                        },
+                        "allow_null": 0,
+                        "other_choice": 0,
+                        "default_value": "",
+                        "layout": "vertical",
+                        "return_format": "value",
+                        "save_other_choice": 0
+                    },
+                    {
+                        "key": "field_6157c5b8009fa",
+                        "label": "Time",
+                        "name": "team",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_616e4ed83eaeb",
+                                    "operator": "==",
+                                    "value": "oficial"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_616623104b872",
+                        "label": "Temporada",
+                        "name": "season",
+                        "type": "taxonomy",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "taxonomy": "season",
+                        "field_type": "select",
+                        "allow_null": 0,
+                        "add_term": 1,
+                        "save_terms": 0,
+                        "load_terms": 0,
+                        "return_format": "id",
+                        "multiple": 0
+                    },
+                    {
+                        "key": "field_6157c747009fb",
+                        "label": "Data",
+                        "name": "date",
+                        "type": "date_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "display_format": "d\/m\/Y",
+                        "return_format": "d\/m\/Y",
+                        "first_day": 0
+                    },
+                    {
+                        "key": "field_6157c9ba009fd",
+                        "label": "Gols - Time 1",
+                        "name": "goals_team1",
+                        "type": "number",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "15",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "min": "",
+                        "max": "",
+                        "step": ""
+                    },
+                    {
+                        "key": "field_6157ca7c009fe",
+                        "label": "Gols - Time 2",
+                        "name": "goals_team2",
+                        "type": "number",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "15",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "min": "",
+                        "max": "",
+                        "step": ""
+                    },
+                    {
+                        "key": "field_6157d0022db28",
+                        "label": "Jogadores",
+                        "name": "players",
+                        "type": "relationship",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": [
+                            "players"
+                        ],
+                        "taxonomy": "",
+                        "filters": [
+                            "search"
+                        ],
+                        "elements": "",
+                        "min": "",
+                        "max": "",
+                        "return_format": "object"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "matches"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": false
+    },
+    {
+        "key": "group_6157b927254b0",
+        "title": "Player Fields",
+        "fields": [
+            {
+                "key": "field_6157b943e2541",
+                "label": "Fields",
+                "name": "fields",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_6157c00a96177",
+                        "label": "Posição",
+                        "name": "position",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "choices": {
+                            "goleiro": "Goleiro",
+                            "zagueiro": "Zagueiro",
+                            "lateraldir": "Lateral direito",
+                            "lateralesq": "Lateral esquerdo",
+                            "volante": "Volante",
+                            "meiocampo": "Meio campista",
+                            "atacante": "Atacante"
+                        },
+                        "default_value": false,
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_6157b96de2542",
+                        "label": "Apelido",
+                        "name": "nickname",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_6157b987e2543",
+                        "label": "Número",
+                        "name": "number",
+                        "type": "number",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "min": "",
+                        "max": "",
+                        "step": ""
+                    },
+                    {
+                        "key": "field_615d2e36c7af2",
+                        "label": "Data de Estreia",
+                        "name": "debut_date",
+                        "type": "date_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "display_format": "d\/m\/Y",
+                        "return_format": "d\/m\/Y",
+                        "first_day": 1
+                    },
+                    {
+                        "key": "field_6157bae8e2545",
+                        "label": "Frase",
+                        "name": "slogan",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_615d2df4c7af1",
+                        "label": "Resumo",
+                        "name": "summary",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "Coloque aqui uma breve descrição do jogador.",
+                        "maxlength": "",
+                        "rows": "",
+                        "new_lines": ""
+                    },
+                    {
+                        "key": "field_6157c36255231",
+                        "label": "Time Principal",
+                        "name": "main_team",
+                        "type": "true_false",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "15",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "message": "",
+                        "default_value": 0,
+                        "ui": 1,
+                        "ui_on_text": "",
+                        "ui_off_text": ""
+                    },
+                    {
+                        "key": "field_6157c14187a52",
+                        "label": "Destaque do Rachão",
+                        "name": "vip_rachao",
+                        "type": "true_false",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "15",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "message": "",
+                        "default_value": 0,
+                        "ui": 1,
+                        "ui_on_text": "",
+                        "ui_off_text": ""
+                    },
+                    {
+                        "key": "field_6157b9a0e2544",
+                        "label": "Foto",
+                        "name": "image",
+                        "type": "image",
+                        "instructions": "Imagem exibida na homepage e no card do jogador.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_615d2efdc7af4",
+                        "label": "Banner",
+                        "name": "banner",
+                        "type": "image",
+                        "instructions": "Imagem exibida na página do jogador.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_615d2f49c7af5",
+                        "label": "Carrosel",
+                        "name": "carousel",
+                        "type": "group",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "layout": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_615d2f77c7af6",
+                                "label": "Slide 1",
+                                "name": "slide_1",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "medium",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            },
+                            {
+                                "key": "field_615d2f88c7af7",
+                                "label": "Slide 2",
+                                "name": "slide_2",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "medium",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            },
+                            {
+                                "key": "field_615d2f8dc7af8",
+                                "label": "Slide 3",
+                                "name": "slide_3",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "medium",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            }
+                        ]
+                    },
+                    {
+                        "key": "field_615d2f97c7af9",
+                        "label": "Vídeos",
+                        "name": "videos",
+                        "type": "group",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "layout": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_615d2fb1c7afa",
+                                "label": "Vídeo 1",
+                                "name": "video_1",
+                                "type": "oembed",
+                                "instructions": "Incorporar YouTube",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "width": "",
+                                "height": ""
+                            },
+                            {
+                                "key": "field_615d2fdbc7afb",
+                                "label": "Vídeo 2",
+                                "name": "video_2",
+                                "type": "oembed",
+                                "instructions": "Incorporar YouTube",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "width": "",
+                                "height": ""
+                            },
+                            {
+                                "key": "field_615d2fdfc7afc",
+                                "label": "Vídeo 3",
+                                "name": "video_3",
+                                "type": "oembed",
+                                "instructions": "Incorporar YouTube",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "width": "",
+                                "height": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "players"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": false
+    },
+    {
+        "key": "group_6164a28cadf78",
+        "title": "Skill Fields",
+        "fields": [
+            {
+                "key": "field_6164e541192a7",
+                "label": "Fields",
+                "name": "fields",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "user_roles": [
+                    "all"
+                ],
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_6164c22e203d2",
+                        "label": "Jogador",
+                        "name": "player",
+                        "type": "post_object",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "post_type": [
+                            "players"
+                        ],
+                        "taxonomy": "",
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "return_format": "object",
+                        "ui": 1
+                    },
+                    {
+                        "key": "field_6164e4f7115e6",
+                        "label": "Carta",
+                        "name": "card",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_6164e607192a8",
+                        "label": "Atributos",
+                        "name": "skills",
+                        "type": "group",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "layout": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_6164a2a7036ba",
+                                "label": "Aceleração",
+                                "name": "speed_up",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164b4f5203c5",
+                                "label": "Pique",
+                                "name": "speed",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164b508203c6",
+                                "label": "Precisão",
+                                "name": "accuracy",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164b53a203c7",
+                                "label": "Força dos Chutes",
+                                "name": "kick_power",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164b56d203c8",
+                                "label": "Cabeceio",
+                                "name": "header",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164b679203c9",
+                                "label": "Passes Curtos",
+                                "name": "short_pass",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164b68b203ca",
+                                "label": "Lançamentos",
+                                "name": "long_pass",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164b8ef203cb",
+                                "label": "Domínio",
+                                "name": "ball_control",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164b93a203cc",
+                                "label": "Habilidade",
+                                "name": "ability",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164b94b203cd",
+                                "label": "Interceptações",
+                                "name": "intercepts",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164b970203ce",
+                                "label": "Marcação",
+                                "name": "marking",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164b9aa203cf",
+                                "label": "Carrinho",
+                                "name": "slide",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164baaf203d0",
+                                "label": "Fôlego",
+                                "name": "stamina",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_6164bac5203d1",
+                                "label": "Força",
+                                "name": "power",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            }
+                        ]
+                    },
+                    {
+                        "key": "field_61760cc8fbc8f",
+                        "label": "Atributos (Goleiro)",
+                        "name": "skills_goleiro",
+                        "type": "group",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "layout": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_61760cc8fbc90",
+                                "label": "Elasticidade",
+                                "name": "elasticidade",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_61760cc8fbc93",
+                                "label": "Manejo",
+                                "name": "manejo",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_61760cc8fbc91",
+                                "label": "Chute",
+                                "name": "chute",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_61760cc8fbc92",
+                                "label": "Reflexos",
+                                "name": "reflexos",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_61760cc8fbc94",
+                                "label": "Velocidade",
+                                "name": "velocidade",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_61760cc8fbc95",
+                                "label": "Posicionamento",
+                                "name": "posicionamento",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "skills"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": false
+    }
+]
