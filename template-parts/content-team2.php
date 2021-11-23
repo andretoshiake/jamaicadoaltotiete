@@ -169,7 +169,7 @@ get_header();
                         ?>
                         <?php if ( $player_total_matches > 0 ) : ?>
                         <tr>
-                          <td><a href="<?php echo get_permalink($obj->ID); ?>" data-toggle="popover" data-placement="top" data-content="Ver perfil do jogador" data-trigger="hover" style="color: limegreen;"><i class="far fa-address-card fa-lg"></i></a></td>
+                          <td><a href="<?php echo get_permalink($obj->ID); ?>" data-toggle="popover" data-placement="top" data-content="Ver perfil do jogador" data-trigger="hover" style="color: limegreen; outline: 0;"><i class="far fa-address-card fa-lg"></i></a></td>
                           <td><?php echo ( strlen($title) > 20 ) ? $player['nickname'] : $title; ?></td>
                           <td><?php echo get_player_position($player['position']); ?></td>
                           <td><?php echo $player_total_matches; ?></td>
