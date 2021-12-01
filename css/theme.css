@@ -195,6 +195,11 @@ body.single-players .post-navigation {
     display: none;
 }
 
+body.single-players .carousel img {
+    max-height: 740px;
+    object-fit: contain;
+}
+
 #jat-carousel-controls .carousel-control-prev {
     left: -10rem;
 }
