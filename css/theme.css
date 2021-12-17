@@ -200,8 +200,13 @@ body.single-players .carousel img {
     object-fit: contain;
 }
 
-#jat-carousel-indicators {
-    background: #008000;
+.post-thumbnail {
+    background-image: linear-gradient(180deg,#339933,#008000);
+    text-align: center;
+}
+
+#jat-carousel {
+    background-image: linear-gradient(180deg,#339933,#008000);
 }
 
 #jat-carousel-controls .carousel-control-prev {

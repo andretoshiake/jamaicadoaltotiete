@@ -886,7 +886,7 @@ endif;
 <div class="container">
     <?php $slides = array_filter($player['carousel']); ?>
     <?php if ( $slides ) : $count = count($slides); ?>
-        <div id="jat-carousel-indicators" class="carousel slide h-first" data-ride="carousel">
+        <div id="jat-carousel" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <?php for ( $i=0; $i<$count; $i++ ) : ?>
             <li data-target="#jat-carousel-indicators" data-slide-to="<?php echo $i; ?>" class="<?php echo ($i == 0) ? 'active' : ''; ?>"></li>
