@@ -33,6 +33,7 @@ $total_blocks_oficial  = 0;
 $player_total_goals_oficial   = 0;
 $player_total_assists_oficial = 0;
 $player_total_blocks_oficial  = 0;
+$player_total_clean_sheets_oficial = 0;
 
 $args = array(
     'post_type' => 'matches',
@@ -124,9 +125,11 @@ if ( $connected->have_posts() ) :
         $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
         $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
         $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
+        $clean_sheets = p2p_get_meta( get_post()->p2p_id, 'clean_sheets', true );
         $player_total_goals_oficial   = $player_total_goals_oficial + $goals;
         $player_total_assists_oficial = $player_total_assists_oficial + $assists;
         $player_total_blocks_oficial  = $player_total_blocks_oficial + $blocks;
+        $player_total_clean_sheets_oficial = $player_total_clean_sheets_oficial + intval($clean_sheets);
     endwhile;
 endif;
 /********** End: Stats Jogos Oficiais **********/
@@ -138,6 +141,7 @@ $total_blocks_rachao  = 0;
 $player_total_goals_rachao   = 0;
 $player_total_assists_rachao = 0;
 $player_total_blocks_rachao  = 0;
+$player_total_clean_sheets_rachao  = 0;
 
 $args = array(
     'post_type' => 'matches',
@@ -230,9 +234,11 @@ if ( $connected->have_posts() ) :
         $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
         $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
         $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
+        $clean_sheets = p2p_get_meta( get_post()->p2p_id, 'clean_sheets', true );
         $player_total_goals_rachao   = $player_total_goals_rachao + $goals;
         $player_total_assists_rachao = $player_total_assists_rachao + $assists;
         $player_total_blocks_rachao  = $player_total_blocks_rachao + $blocks;
+        $player_total_clean_sheets_rachao = $player_total_clean_sheets_rachao + intval($clean_sheets);
     endwhile;
 endif;
 /********** End: Stats Rachão **********/
@@ -309,6 +315,12 @@ $terms = get_terms( array(
                     <?php $percentage = ($player_total_blocks_oficial / $total_blocks_oficial) * 100; ?>
                     <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ceil($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_blocks_oficial > 0 ) ? $player_total_blocks_oficial : ''; ?></div>
                 </div>
+                <br />
+                <h5>Clean Sheets</h5>
+                <div class="progress">
+                    <?php $percentage = ($player_total_clean_sheets_oficial / $total_matches_oficial) * 100; ?>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ceil($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_clean_sheets_oficial > 0 ) ? $player_total_clean_sheets_oficial : ''; ?></div>
+                </div>
             <?php else : ?>
                 <h5>Gols</h5>
                 <div class="progress">
@@ -332,6 +344,7 @@ $terms = get_terms( array(
               <th scope="col">Jogos</th>
               <?php if ( 'goleiro' == $player['position'] ) : ?>
                 <th scope="col">Defesas</th>
+                <th scope="col">Clean Sheets</th>
               <?php else : ?>
                 <th scope="col">Gols</th>
                 <th scope="col">Assist</th>
@@ -339,12 +352,13 @@ $terms = get_terms( array(
           </tr>
           </thead>
           <tbody>
-            <?php $ptm = $ptg = $pta = $ptb = 0; ?>
+            <?php $ptm = $ptg = $pta = $ptb = $ptcs = 0; ?>
             <?php foreach ( $terms as $term ) : ?>
                 <?php
-                    $player_total_goals = 0;
+                    $player_total_goals   = 0;
                     $player_total_assists = 0;
-                    $player_total_blocks = 0;
+                    $player_total_blocks  = 0;
+                    $player_total_clean_sheets = 0;
               
                     $args = array(
                         'post_type' => 'matches',
@@ -407,21 +421,25 @@ $terms = get_terms( array(
                             $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
                             $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
                             $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
+                            $clean_sheets = p2p_get_meta( get_post()->p2p_id, 'clean_sheets', true );
                             $player_total_goals   = $player_total_goals + $goals;
                             $player_total_assists = $player_total_assists + $assists;
                             $player_total_blocks  = $player_total_blocks + $blocks;
+                            $player_total_clean_sheets = $player_total_clean_sheets + intval($clean_sheets);
                         endwhile;
                     endif;
               
-                    $ptg = $ptg + $player_total_goals;
-                    $pta = $pta + $player_total_assists;
-                    $ptb = $ptb + $player_total_blocks;
+                    $ptg  = $ptg + $player_total_goals;
+                    $pta  = $pta + $player_total_assists;
+                    $ptb  = $ptb + $player_total_blocks;
+                    $ptcs = $ptcs + $player_total_clean_sheets;
                 ?>
                 <tr>
                   <th scope="col"><strong><?php echo $term->name; ?></strong></th>	
                   <td><?php echo ( $player_total_matches == 0 ) ? '-' : $player_total_matches; ?></td>
                   <?php if ( 'goleiro' == $player['position'] ) : ?>
                     <td><?php echo ( $player_total_blocks == 0 ) ? '-' : $player_total_blocks; ?></td>
+                    <td><?php echo ( $player_total_clean_sheets == 0 ) ? '-' : $player_total_clean_sheets; ?></td>
                   <?php else : ?>
                     <td><?php echo ( $player_total_goals == 0 ) ? '-' : $player_total_goals; ?></td>
                     <td><?php echo ( $player_total_assists == 0 ) ? '-' : $player_total_assists; ?></td>
@@ -433,6 +451,7 @@ $terms = get_terms( array(
               <td><?php echo ( $ptm == 0 ) ? '-' : $ptm; ?></td>
               <?php if ( 'goleiro' == $player['position'] ) : ?>
                 <td><?php echo ( $ptb == 0 ) ? '-' : $ptb; ?></td>
+                <td><?php echo ( $ptcs == 0 ) ? '-' : $ptcs; ?></td>
               <?php else : ?>
                 <td><?php echo ( $ptg == 0 ) ? '-' : $ptg; ?></td>
                 <td><?php echo ( $pta == 0 ) ? '-' : $pta; ?></td>
@@ -458,6 +477,12 @@ $terms = get_terms( array(
                     <?php $percentage = ($player_total_blocks_rachao / $total_blocks_rachao) * 100; ?>
                     <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ceil($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_blocks_rachao > 0 ) ? $player_total_blocks_rachao : ''; ?></div>
                 </div>
+                <br />
+                <h5>Clean Sheets</h5>
+                <div class="progress">
+                    <?php $percentage = ($player_total_clean_sheets_rachao / $total_matches_rachao) * 100; ?>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ceil($percentage); ?>%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><?php echo ( $player_total_clean_sheets_rachao > 0 ) ? $player_total_clean_sheets_rachao : ''; ?></div>
+                </div>
             <?php else : ?>
                 <h5>Gols</h5>
                 <div class="progress">
@@ -481,6 +506,7 @@ $terms = get_terms( array(
               <th scope="col">Jogos</th>
               <?php if ( 'goleiro' == $player['position'] ) : ?>
                 <th scope="col">Defesas</th>
+                <th scope="col">Clean Sheets</th>
               <?php else : ?>
                 <th scope="col">Gols</th>
                 <th scope="col">Assist</th>
@@ -488,12 +514,13 @@ $terms = get_terms( array(
           </tr>
           </thead>
           <tbody>
-            <?php $ptm = $ptg = $pta = $ptb = 0; ?>
+            <?php $ptm = $ptg = $pta = $ptb = $ptcs = 0; ?>
             <?php foreach ( $terms as $term ) : ?>
                 <?php
                     $player_total_goals = 0;
                     $player_total_assists = 0;
                     $player_total_blocks = 0;
+                    $player_total_clean_sheets = 0;
               
                     $args = array(
                         'post_type' => 'matches',
@@ -556,21 +583,25 @@ $terms = get_terms( array(
                             $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
                             $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
                             $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
+                            $clean_sheets = p2p_get_meta( get_post()->p2p_id, 'clean_sheets', true );
                             $player_total_goals   = $player_total_goals + $goals;
                             $player_total_assists = $player_total_assists + $assists;
                             $player_total_blocks  = $player_total_blocks + $blocks;
+                            $player_total_clean_sheets = $player_total_clean_sheets + intval($clean_sheets);
                         endwhile;
                     endif;
               
                     $ptg = $ptg + $player_total_goals;
                     $pta = $pta + $player_total_assists;
                     $ptb = $ptb + $player_total_blocks;
+                    $ptcs = $ptcs + $player_total_clean_sheets;
                 ?>
                 <tr>
                   <th scope="col"><strong><?php echo $term->name; ?></strong></th>	
                   <td><?php echo ( $player_total_matches == 0 ) ? '-' : $player_total_matches; ?></td>
                   <?php if ( 'goleiro' == $player['position'] ) : ?>
                     <td><?php echo ( $player_total_blocks == 0 ) ? '-' : $player_total_blocks; ?></td>
+                    <td><?php echo ( $player_total_clean_sheets == 0 ) ? '-' : $player_total_clean_sheets; ?></td>
                   <?php else : ?>
                     <td><?php echo ( $player_total_goals == 0 ) ? '-' : $player_total_goals; ?></td>
                     <td><?php echo ( $player_total_assists == 0 ) ? '-' : $player_total_assists; ?></td>
@@ -582,6 +613,7 @@ $terms = get_terms( array(
               <td><?php echo ( $ptm == 0 ) ? '-' : $ptm; ?></td>
               <?php if ( 'goleiro' == $player['position'] ) : ?>
                 <td><?php echo ( $ptb == 0 ) ? '-' : $ptb; ?></td>
+                <td><?php echo ( $ptcs == 0 ) ? '-' : $ptcs; ?></td>
               <?php else : ?>
                 <td><?php echo ( $ptg == 0 ) ? '-' : $ptg; ?></td>
                 <td><?php echo ( $pta == 0 ) ? '-' : $pta; ?></td>

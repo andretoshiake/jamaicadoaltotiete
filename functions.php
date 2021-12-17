@@ -479,7 +479,11 @@ function jat_connection_types() {
             'red_cards' => array(
                 'title' => __( 'Cartões vermelhos', 'jat' ),
                 'type' => 'text',
-            )
+            ),
+            'clean_sheets' => array(
+                'title' => __( 'Clean sheets', 'jat' ),
+                'type' => 'checkbox',
+            ),
         ),
         'admin_box' => array(
             'show' => 'from',
@@ -506,6 +510,9 @@ function jat_custom_admin_css() {
         echo '<style>
             .p2p-connections .p2p-col-title {
                 width: 30%;
+            }
+            .p2p-col-meta-clean_sheets {
+                text-align: center;
             }
             a.acf-icon.dark {
                 color: #555d66;

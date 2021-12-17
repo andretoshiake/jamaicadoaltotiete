@@ -200,6 +200,10 @@ body.single-players .carousel img {
     object-fit: contain;
 }
 
+#jat-carousel-indicators {
+    background: #008000;
+}
+
 #jat-carousel-controls .carousel-control-prev {
     left: -10rem;
 }

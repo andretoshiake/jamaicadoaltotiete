@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main" style="background-image: url('<?php echo get_template_directory_uri() . '/img/fundo_jat.jpg'; ?>')">
+	<main id="primary" class="site-main" style="background: url('<?php echo get_template_directory_uri() . '/img/fundo_jat.jpg'; ?>') no-repeat; background-size: cover;">
         <div class="container">
             <section class="error-404 not-found">
                 <div id="notfound">

@@ -58,8 +58,7 @@ get_header();
     <br />
 
     <div class="container">
-        <h4>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. 
-        Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado.</h4>
+        <h4>O Rachão do JAT acontece todo sábado, às 7h, no campo 1 da Ibar, e é de suma importância para o time. Além de ser o entretenimento da galera no fim de semana, também ajuda na formação do time que disputa os amistosos e mantém nossos jogadores em atividade. Veja abaixo alguns destaques e as estatísticas dos nossos rachões:</h4>
 
         <br />
         <br />
@@ -108,6 +107,7 @@ get_header();
                       <th scope="col">Gols</th>
                       <th scope="col">Assistências</th>
                       <th scope="col">Defesas</th>
+                      <th scope="col">Clean Sheets</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -118,6 +118,7 @@ get_header();
                             $player_total_goals = 0;
                             $player_total_assists = 0;
                             $player_total_blocks = 0;
+                            $player_total_clean_sheets = 0;
                       
                             $args = array(
                                 'post_type' => 'matches',
@@ -159,9 +160,11 @@ get_header();
                                     $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
                                     $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
                                     $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
+                                    $clean_sheets = p2p_get_meta( get_post()->p2p_id, 'clean_sheets', true );
                                     $player_total_goals   = $player_total_goals + $goals;
                                     $player_total_assists = $player_total_assists + $assists;
                                     $player_total_blocks  = $player_total_blocks + $blocks;
+                                    $player_total_clean_sheets = $player_total_clean_sheets + intval($clean_sheets);
                                 endwhile;
                             endif;
                       
@@ -176,6 +179,7 @@ get_header();
                           <td><?php echo $player_total_goals; ?></td>
                           <td><?php echo $player_total_assists; ?></td>
                           <td><?php echo $player_total_blocks; ?></td>
+                          <td><?php echo $player_total_clean_sheets; ?></td>
                         </tr>
                         <?php endif; ?>
                       <?php endwhile; ?>
