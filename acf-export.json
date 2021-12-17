@@ -777,6 +777,60 @@
                                 "max_height": "",
                                 "max_size": "",
                                 "mime_types": ""
+                            },
+                            {
+                                "key": "field_61a7b94ad4b1b",
+                                "label": "Slide 4",
+                                "name": "slide_4",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "return_format": "array",
+                                "preview_size": "medium",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            },
+                            {
+                                "key": "field_61a7b96bd4b1c",
+                                "label": "Slide 5",
+                                "name": "slide_5",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "return_format": "array",
+                                "preview_size": "medium",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
                             }
                         ]
                     },
@@ -865,7 +919,7 @@
         "hide_on_screen": "",
         "active": true,
         "description": "",
-        "show_in_rest": false
+        "show_in_rest": 0
     },
     {
         "key": "group_6164a28cadf78",
@@ -943,7 +997,7 @@
                     },
                     {
                         "key": "field_6164e607192a8",
-                        "label": "Atributos",
+                        "label": "Atributos (Jogador)",
                         "name": "skills",
                         "type": "group",
                         "instructions": "",
@@ -1316,6 +1370,30 @@
                         "layout": "block",
                         "sub_fields": [
                             {
+                                "key": "field_619d3cfdbcad3",
+                                "label": "Geral",
+                                "name": "geral",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
                                 "key": "field_61760cc8fbc90",
                                 "label": "Elasticidade",
                                 "name": "elasticidade",
@@ -1460,6 +1538,194 @@
                                 "step": ""
                             }
                         ]
+                    },
+                    {
+                        "key": "field_619d3a12a8d78",
+                        "label": "Atributos Gerais",
+                        "name": "skills_media",
+                        "type": "group",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "user_roles": [
+                            "all"
+                        ],
+                        "layout": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_619d3ad1a8d7f",
+                                "label": "Geral",
+                                "name": "geral",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_619d3a12a8d79",
+                                "label": "Ritmo",
+                                "name": "ritmo",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_619d3a12a8d7a",
+                                "label": "Dribles",
+                                "name": "dribles",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_619d3a12a8d7b",
+                                "label": "Finalizações",
+                                "name": "shots",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_619d3a12a8d7c",
+                                "label": "Defesa",
+                                "name": "defesa",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_619d3a12a8d7d",
+                                "label": "Passe",
+                                "name": "passe",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_619d3a12a8d7e",
+                                "label": "Físico",
+                                "name": "fisico",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "14",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "user_roles": [
+                                    "all"
+                                ],
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            }
+                        ]
                     }
                 ]
             }
@@ -1481,6 +1747,6 @@
         "hide_on_screen": "",
         "active": true,
         "description": "",
-        "show_in_rest": false
+        "show_in_rest": 0
     }
 ]
