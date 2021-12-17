@@ -886,10 +886,10 @@ endif;
 <div class="container">
     <?php $slides = array_filter($player['carousel']); ?>
     <?php if ( $slides ) : $count = count($slides); ?>
-        <div id="jat-carousel" class="carousel slide" data-ride="carousel">
+        <div id="jat-carousel-controls" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <?php for ( $i=0; $i<$count; $i++ ) : ?>
-            <li data-target="#jat-carousel" data-slide-to="<?php echo $i; ?>" class="<?php echo ($i == 0) ? 'active' : ''; ?>"></li>
+            <li data-target="#jat-carousel-controls" data-slide-to="<?php echo $i; ?>" class="<?php echo ($i == 0) ? 'active' : ''; ?>"></li>
             <?php endfor; ?>
           </ol>
           <div class="carousel-inner">
@@ -905,11 +905,11 @@ endif;
                 endforeach;
             ?>
           </div>
-          <a class="carousel-control-prev" href="#jat-carousel" role="button" data-slide="prev">
+          <a class="carousel-control-prev" href="#jat-carousel-controls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="carousel-control-next" href="#jat-carousel" role="button" data-slide="next">
+          <a class="carousel-control-next" href="#jat-carousel-controls" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
