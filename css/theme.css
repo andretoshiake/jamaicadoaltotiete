@@ -669,6 +669,31 @@ p:empty {
     object-fit: cover;
 }
 
+#secondary-navbar {
+    display: block;
+    background: #000;
+}
+
+#secondary-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-right: 3rem;
+}
+
+#secondary-menu li {
+    padding-left: 1rem;
+}
+
+#secondary-menu li a {
+    color: #fff;
+    font-weight: bold;
+}
+
+#secondary-menu li a:hover {
+    text-decoration: underline;
+}
+
 .no-results.not-found {
     padding: 2rem;
     margin-bottom: 5rem;

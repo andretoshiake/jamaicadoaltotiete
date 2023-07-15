@@ -25,6 +25,19 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'jat' ); ?></a>
 	<header id="masthead" class="site-header">
+        <?php
+            wp_nav_menu( array(
+                'theme_location' => 'menu-2',
+                'depth' => 2,
+                'container' => 'div',
+                'container_class' => 'collapse navbar-collapse justify-content-md-center',
+                'container_id' => 'secondary-navbar',
+                'menu_id' => 'secondary-menu',
+                'menu_class' => 'nav navbar-nav',
+                'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
+                'walker' => new WP_Bootstrap_Navwalker())
+            );
+        ?>
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
