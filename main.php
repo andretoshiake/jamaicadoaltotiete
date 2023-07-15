@@ -11,7 +11,12 @@ get_header();
     <!--Start: Conteúdo-->
     <?php get_template_part('inc/highlight-first'); ?>
 
-    <?php get_template_part('inc/news'); ?>
+    <?php if ( is_active_sidebar( 'jat-sidebar-1' ) ) : ?>
+    <div class="container">
+        <br /><br />
+        <?php dynamic_sidebar('jat-sidebar-1'); ?>
+    </div>
+    <?php endif; ?>
 
     <?php get_template_part('inc/highlight-second'); ?>
 

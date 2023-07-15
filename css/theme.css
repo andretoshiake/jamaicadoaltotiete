@@ -694,6 +694,29 @@ p:empty {
     text-decoration: underline;
 }
 
+.widget_products .widget-title {
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2rem !important;
+}
+
+.widget_products {
+    margin-bottom: 4rem;
+    background-color: #fff;
+    padding-bottom: 3rem;
+    padding-top: 2rem;
+}
+
+.widget_products .widget-title:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    padding-top: 16px;
+    border-bottom: 2px solid black;
+}
+
 .no-results.not-found {
     padding: 2rem;
     margin-bottom: 5rem;
