@@ -12,16 +12,15 @@
 ?>
     
     <!--Start: Patrocínios-->
-    <?php get_template_part('inc/sponsors'); ?>
+    <?php // get_template_part('inc/sponsors'); ?>
     <!--End: Patrocínios-->
 
-    <!--Start: Redes Sociais-->
-    <?php get_template_part('inc/social-media'); ?>    
-    <!--End: Redes Sociais-->
-
     <footer class="footer">
+        <!--Start: Redes Sociais-->
+        <?php get_template_part('inc/social-media'); ?>
+        <!--End: Redes Sociais-->
+        
 		<div class="container" align="center">
-            <br />
             <p style="color: #ddd;"> ©2020 Jamaica do Alto Tietê. Todos os direitos reservados </p>
 			<br />
 		</div>

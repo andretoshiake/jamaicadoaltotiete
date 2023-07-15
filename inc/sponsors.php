@@ -1,4 +1,4 @@
-<div style="background-image: linear-gradient(to top, rgba(247, 217, 2), rgba(255, 255, 204, 0.73));">
+<div>
     <div class="container">
         <br />
         <div class="row">

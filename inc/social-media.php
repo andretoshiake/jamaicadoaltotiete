@@ -1,4 +1,4 @@
-<div style="background-image: linear-gradient(180deg,#F7D902,#339933);">
+<div>
     <div class="container">
         <br />
         <div class="row">
