@@ -17,7 +17,7 @@
 <?php if ( $h_second ) : $count = $h_second->found_posts; ?>
 <br />
 <br />
-<div class="highlight-second" style="background-image: linear-gradient(to bottom, rgba(247, 217, 2), rgba(255, 255, 204, 0.73))">
+<div class="highlight-second">
     <div class="container h-second">
         <h2 class="jat-header">JAT - JAMAICA DO ALTO TIETÊ</h2>
         <hr class="h-row" />
