@@ -756,21 +756,21 @@ p:empty {
     display: none;
 }
 
-.widget_products .widget-title {
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 2rem !important;
-}
-
-.widget_products {
+.jat-sidebar {
     margin-bottom: 4rem;
     background-color: #fff;
     padding-bottom: 3rem;
     padding-top: 2rem;
 }
 
-.widget_products .widget-title:after {
+.jat-sidebar h3 {
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2rem !important;
+}
+
+.jat-sidebar h3:after {
     content: "";
     display: block;
     margin: 0 auto;
