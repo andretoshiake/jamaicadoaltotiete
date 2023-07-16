@@ -13,11 +13,9 @@ get_header();
 
     <?php if ( is_active_sidebar( 'jat-sidebar-1' ) ) : ?>
     <div class="jat-sidebar">
-        <div class="container">
-            <br />
-            <br />
-            <?php dynamic_sidebar('jat-sidebar-1'); ?>
-        </div>
+        <br />
+        <br />
+        <?php dynamic_sidebar('jat-sidebar-1'); ?>
     </div>
     <?php endif; ?>
 
