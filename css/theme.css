@@ -735,6 +735,13 @@ p:empty {
 .jat-sidebar ul.cart_list, .jat-sidebar ul.product_list_widget {
     display: flex;
     justify-content: space-evenly;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.jat-sidebar ul.cart_list li a:hover, .jat-sidebar ul.product_list_widget li a:hover {
+    text-decoration: none;
 }
 
 .jat-sidebar ul.cart_list li img, .jat-sidebar ul.product_list_widget li img {
@@ -749,6 +756,7 @@ p:empty {
     text-align: center;
     margin-top: 1rem;
     color: #005000;
+    font-weight: bold;
 }
 
 .jat-sidebar ul.cart_list, .jat-sidebar ul.product_list_widget .woocommerce-Price-amount.amount {
@@ -757,9 +765,8 @@ p:empty {
 }
 
 .jat-sidebar {
-    margin-bottom: 4rem;
+    margin-top: 3rem;
     background-color: #fff;
-    padding-bottom: 3rem;
     padding-top: 2rem;
 }
 
