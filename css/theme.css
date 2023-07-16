@@ -766,8 +766,8 @@ p:empty {
 
 .jat-sidebar {
     margin-top: 3rem;
+    padding-bottom: 3rem;
     background-color: #fff;
-    padding-top: 2rem;
 }
 
 .jat-sidebar h3 {
