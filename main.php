@@ -12,10 +12,12 @@ get_header();
     <?php get_template_part('inc/highlight-first'); ?>
 
     <?php if ( is_active_sidebar( 'jat-sidebar-1' ) ) : ?>
-    <div class="container jat-sidebar">
-        <br />
-        <br />
-        <?php dynamic_sidebar('jat-sidebar-1'); ?>
+    <div class="jat-sidebar">
+        <div class="container">
+            <br />
+            <br />
+            <?php dynamic_sidebar('jat-sidebar-1'); ?>
+        </div>
     </div>
     <?php endif; ?>
 
