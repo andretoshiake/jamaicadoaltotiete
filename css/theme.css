@@ -740,6 +740,11 @@ p:empty {
     padding: 0;
 }
 
+.jat-sidebar ul.cart_list li, .jat-sidebar ul.product_list_widget li {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
 .jat-sidebar ul.cart_list li a:hover, .jat-sidebar ul.product_list_widget li a:hover {
     text-decoration: none;
 }
@@ -1073,5 +1078,16 @@ p:empty {
 
     p {
         padding: 10px !important;
+    }
+}
+
+@media (max-width: 1023px) {
+    .jat-sidebar ul.cart_list, .jat-sidebar ul.product_list_widget {
+        display: grid;
+    }
+
+    .jat-sidebar ul.cart_list li, .jat-sidebar ul.product_list_widget li {
+        margin-bottom: 2rem;
+        border: 1px solid #008000;
     }
 }
