@@ -99,9 +99,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="player-card-resp col-lg-4">
+                                <img class="img-fluid" src="<?php echo ( $player['image'] ) ? esc_url($player['image']['url']) : get_template_directory_uri() . '/img/nopicture.png'; ?>">
+                            </div>
                             <br /> 
                             <div class="container">
-                                <div class="row" align="center">
+                                <div class="player-stats row" align="center">
                                     <?php if ( 'goleiro' == $player['position'] ) : ?>
                                         <div class="col-sm-6" style="border-right: 2px solid #005000; height: 150px;">
                                             <p class="score"> <?php echo $player_total_matches; ?> </p> 
@@ -147,7 +150,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="player-card col-lg-4">
                             <img class="img-fluid" src="<?php echo ( $player['image'] ) ? esc_url($player['image']['url']) : get_template_directory_uri() . '/img/nopicture.png'; ?>">
                         </div>
                     </div>
