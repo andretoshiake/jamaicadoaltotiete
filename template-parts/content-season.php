@@ -23,6 +23,10 @@ if ( !$season ) {
     $season = $terms[0];
 }
 
+$time = $_GET['time'];
+$context = ( $time && filter_var($time, FILTER_VALIDATE_INT) && $time == 2 ) ? 'rachao' : 'oficial';
+$context_label = ( $time && filter_var($time, FILTER_VALIDATE_INT) && $time == 2 ) ? 'RACHÃO' : 'JOGOS OFICIAIS';
+
 $args = array(
     'post_type' => 'matches',
     'post_status' => 'publish',
@@ -38,7 +42,7 @@ $args = array(
         ),
         array(
             'key' => 'fields_context',
-            'value' => 'oficial',
+            'value' => $context,
             'compare' => 'LIKE'
         )
     )
@@ -62,14 +66,16 @@ get_header();
     <div class="container select-season">
         <h5>Escolha uma temporada:</h5>
         <select id="select-season" class="selectpicker" data-live-search="true" data-size="5" onchange="location=this.value;">
-          <?php foreach ( $terms as $term ) : ?>
-          <option value="<?php echo dirname($current_url) . '/' . $term->slug; ?>" <?php echo ( $season->term_id == $term->term_id ) ? 'selected' : ''; ?>><?php echo $term->name; ?></option>
-          <?php endforeach; ?>
+            <?php foreach ( $terms as $term ) : ?>
+                <?php $team = ( $time && filter_var($time, FILTER_VALIDATE_INT) && $time == 2 ) ? '?time=2' : ''; ?>
+                <?php $redirect = dirname($current_url) . '/' . $term->slug . $team; ?>
+                <option value="<?php echo $redirect; ?>" <?php echo ( $season->term_id == $term->term_id ) ? 'selected' : ''; ?>><?php echo $term->name; ?></option>
+            <?php endforeach; ?>
         </select>
     </div>
 
     <div class="container">
-        <h3 class="text-center" style="color: #005000;"><strong>TEMPORADA <?php echo $season->slug; ?></strong></h3>
+        <h3 class="text-center" style="color: #005000;"><strong>TEMPORADA <?php echo $season->slug . ' - ' . $context_label; ?></strong></h3>
         <hr style="border: 1px solid #005000;">
         <br />
         <div class="row">
@@ -84,6 +90,26 @@ get_header();
                             <th scope="col">Informações</th>
                         </tr>
                     </thead>
+                    <?php if ( 'rachao' == $context ) : ?>
+                    <tbody>
+                        <?php if ( $result->have_posts() ) : ?>
+                            <?php while( $result->have_posts() ) : $result->the_post(); $match = get_field('fields'); ?>
+                            <tr>
+                                <th scope="row"><?php echo dirname($match['date']); ?></th>
+                                <td><h5><span class="badge badge-warning">Time 1 - Amarelo</span></h5></td>
+                                <td><?php echo $match['goals_team1'] . ' x ' . $match['goals_team2']; ?></td>
+                                <td><h5><span class="badge badge-primary">Time 2 - Azul</span></h5></td>
+                                <td>
+                                    <?php if ( $match['goals_team1'] > 0 || $match['goals_team2'] > 0 ) : ?>
+                                        <!-- Botão para ativar a modal -->
+                                        <button type="button" class="btn btn-sm btn-ajax" data-toggle="modal" data-target="#modal-info" data-match="<?php the_ID(); ?>">Veja Mais...</button>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </tbody>
+                    <?php else : ?>
                     <tbody>
                         <?php if ( $result->have_posts() ) : ?>
                             <?php while( $result->have_posts() ) : $result->the_post(); $match = get_field('fields'); ?>
@@ -102,6 +128,7 @@ get_header();
                             <?php endwhile; ?>
                         <?php endif; ?>
                     </tbody>
+                    <?php endif; ?>
                 </table>
             </div>
         </div>

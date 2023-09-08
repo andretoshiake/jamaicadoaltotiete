@@ -550,6 +550,9 @@ function jat_template_redirect() {
     $current_url = home_url( add_query_arg( array(), $wp->request ) );
     $current_slug = add_query_arg( array(), $wp->request );
 
+    $time = $_GET['time'];
+    $team = ( $time && filter_var($time, FILTER_VALIDATE_INT) && $time == 2 ) ? '?time=2' : '';
+
     if ( 'season' == $wp->request ) {
         $terms = get_terms( array(
             'taxonomy' => 'season',
@@ -558,7 +561,7 @@ function jat_template_redirect() {
             'hide_empty' => false,
         ) );
 
-        $redirect = $current_url.'/'.$terms[0]->slug;
+        $redirect = $current_url.'/'.$terms[0]->slug.$team;
         wp_redirect($redirect);
         exit();
     }
