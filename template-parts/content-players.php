@@ -262,10 +262,11 @@ $terms = get_terms( array(
 <br />
 
 <div class="container jat-player">
-    <div class="tab">
+    <div class="tab player-tabs">
       <button id="tab-general" class="tablinks active" onclick="openStats(event, 'general')">Geral</button>
       <button id="tab-stats" class="tablinks" onclick="openStats(event, 'stats')">Estatísticas</button>
       <button id="tab-skills" class="tablinks" onclick="openStats(event, 'skills')">Atributos</button>
+      <button id="tab-achievements" class="tablinks" onclick="openStats(event, 'achievements')">Conquistas</button>
     </div>
     
     <!-- Start: Aba Geral -->
@@ -877,6 +878,120 @@ endif;
     </div>
     <?php endif; ?>
     <!-- End: Aba Atributos -->
+
+    <!-- Start: Aba Conquistas -->
+    <div id="achievements" class="tabcontent">
+        <br />
+        <!-- Start: Jogos Oficiais -->
+        <div class="container section-stats">
+            <h4>JOGOS OFICIAIS</h4>
+            <?php if ( 'goleiro' == $player['position'] ) : ?>
+            <div class="row">
+                <?php $medal = ( $player_total_matches_oficial >= 50 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_matches_oficial >= 100 ) ? 'gold' : $medal; ?>
+                <div class="col text-center">
+                    <h3 class="text-center"><span class="badge badge-success">JOGOS</span></h3>
+                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
+                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_matches_oficial; ?></span></h3>
+                </div>
+                <?php $medal = ( $player_total_blocks_oficial >= 50 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_blocks_oficial >= 100 ) ? 'gold' : $medal; ?>
+                <div class="col text-center">
+                    <h3 class="text-center"><span class="badge badge-success">DEFESAS</span></h3>
+                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
+                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_blocks_oficial; ?></span></h3>
+                </div>
+            </div>
+            <?php else : ?>
+            <div class="row">
+                <?php $medal = ( $player_total_matches_oficial >= 50 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_matches_oficial >= 100 ) ? 'gold' : $medal; ?>
+                <div class="col">
+                    <h3 class="text-center"><span class="badge badge-success">JOGOS</span></h3>
+                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
+                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_matches_oficial; ?></span></h3>
+                </div>
+                <?php $medal = ( $player_total_goals_oficial >= 25 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_goals_oficial >= 50 ) ? 'gold' : $medal; ?>
+                <div class="col">
+                    <h3 class="text-center"><span class="badge badge-success">GOLS</span></h3>
+                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
+                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_goals_oficial; ?></span></h3>
+                </div>
+                <?php $medal = ( $player_total_assists_oficial >= 15 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_assists_oficial >= 30 ) ? 'gold' : $medal; ?>
+                <div class="col">
+                    <h3 class="text-center"><span class="badge badge-success">ASSISTÊNCIAS</span></h3>
+                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
+                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_assists_oficial; ?></span></h3>
+                </div>
+            </div>
+            <?php endif; ?>
+        </div>
+        <br />
+        <div class="container section-stats">
+            <h4>RACHÃO</h4>
+            <?php if ( 'goleiro' == $player['position'] ) : ?>
+            <div class="row">
+                <?php $medal = ( $player_total_matches_rachao >= 50 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_matches_rachao >= 100 ) ? 'gold' : $medal; ?>
+                <div class="col text-center">
+                    <h3 class="text-center"><span class="badge badge-success">JOGOS</span></h3>
+                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
+                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_matches_rachao; ?></span></h3>
+                </div>
+                <?php $medal = ( $player_total_blocks_rachao >= 50 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_blocks_rachao >= 100 ) ? 'gold' : $medal; ?>
+                <div class="col text-center">
+                    <h3 class="text-center"><span class="badge badge-success">DEFESAS</span></h3>
+                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
+                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_blocks_rachao; ?></span></h3>
+                </div>
+            </div>
+            <?php else : ?>
+            <div class="row">
+                <?php $medal = ( $player_total_matches_rachao >= 50 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_matches_rachao >= 100 ) ? 'gold' : $medal; ?>
+                <div class="col">
+                    <h3 class="text-center"><span class="badge badge-success">JOGOS</span></h3>
+                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
+                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_matches_rachao; ?></span></h3>
+                </div>
+                <?php $medal = ( $player_total_goals_rachao >= 25 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_goals_rachao >= 50 ) ? 'gold' : $medal; ?>
+                <div class="col">
+                    <h3 class="text-center"><span class="badge badge-success">GOLS</span></h3>
+                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
+                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_goals_rachao; ?></span></h3>
+                </div>
+                <?php $medal = ( $player_total_assists_rachao >= 15 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_assists_rachao >= 30 ) ? 'gold' : $medal; ?>
+                <div class="col">
+                    <h3 class="text-center"><span class="badge badge-success">ASSISTÊNCIAS</span></h3>
+                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
+                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_assists_rachao; ?></span></h3>
+                </div>
+            </div>
+            <?php endif; ?>
+        </div>
+        <br />
+        <div class="container section-stats">
+            <h4>PREMIAÇÕES</h4>
+            <div class="row">
+                <?php if ( $player['reward'] ) : ?>
+                <div class="col">
+                    <?php echo $player['reward']; ?>
+                </div>
+                <?php else : ?>
+                <div class="col text-center">
+                    <i>Sem premiações até o momento.</i>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <br />
+    </div>
+    <!-- End: Aba Conquistas -->
 </div>
 
 <br />

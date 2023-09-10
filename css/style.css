@@ -870,6 +870,14 @@ ul.squad {
     padding: 0;
 }
 
+.player-tabs {
+    display: flex;
+}
+
+.img-medal {
+    max-width: 330px;
+}
+
 .no-results.not-found {
     padding: 2rem;
     margin-bottom: 5rem;
