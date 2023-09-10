@@ -884,15 +884,15 @@ endif;
         <br />
         <!-- Start: Jogos Oficiais -->
         <div class="container section-stats">
-            <h4>JOGOS OFICIAIS</h4>
+            <h4>JOGOS OFICIAIS <i class="fas fa-info-circle fa-xs align-top" data-toggle="modal" data-target="#modal-help" style="cursor: pointer;"></i></h4>
             <?php if ( 'goleiro' == $player['position'] ) : ?>
             <div class="row">
                 <?php $medal = ( $player_total_matches_oficial >= 50 ) ? 'silver' : 'bronze'; ?>
                 <?php $medal = ( $player_total_matches_oficial >= 100 ) ? 'gold' : $medal; ?>
                 <div class="col text-center">
-                    <h3 class="text-center"><span class="badge badge-success">JOGOS</span></h3>
+                    <h3><span class="badge badge-success">JOGOS</span></h3>
                     <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
-                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_matches_oficial; ?></span></h3>
+                    <h3 class="mt-2"><span class="badge badge-success"><?php echo $player_total_matches_oficial; ?></span></h3>
                 </div>
                 <?php $medal = ( $player_total_blocks_oficial >= 50 ) ? 'silver' : 'bronze'; ?>
                 <?php $medal = ( $player_total_blocks_oficial >= 100 ) ? 'gold' : $medal; ?>
@@ -906,73 +906,61 @@ endif;
             <div class="row">
                 <?php $medal = ( $player_total_matches_oficial >= 50 ) ? 'silver' : 'bronze'; ?>
                 <?php $medal = ( $player_total_matches_oficial >= 100 ) ? 'gold' : $medal; ?>
-                <div class="col">
-                    <h3 class="text-center"><span class="badge badge-success">JOGOS</span></h3>
+                <div class="col text-center">
+                    <h3><span class="badge badge-success">JOGOS</span></h3>
                     <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
-                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_matches_oficial; ?></span></h3>
+                    <h3 class="mt-2"><span class="badge badge-success"><?php echo $player_total_matches_oficial; ?></span></h3>
                 </div>
                 <?php $medal = ( $player_total_goals_oficial >= 25 ) ? 'silver' : 'bronze'; ?>
                 <?php $medal = ( $player_total_goals_oficial >= 50 ) ? 'gold' : $medal; ?>
-                <div class="col">
-                    <h3 class="text-center"><span class="badge badge-success">GOLS</span></h3>
+                <div class="col text-center">
+                    <h3><span class="badge badge-success">GOLS</span></h3>
                     <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
-                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_goals_oficial; ?></span></h3>
+                    <h3 class="mt-2"><span class="badge badge-success"><?php echo $player_total_goals_oficial; ?></span></h3>
                 </div>
-                <?php $medal = ( $player_total_assists_oficial >= 15 ) ? 'silver' : 'bronze'; ?>
-                <?php $medal = ( $player_total_assists_oficial >= 30 ) ? 'gold' : $medal; ?>
-                <div class="col">
-                    <h3 class="text-center"><span class="badge badge-success">ASSISTÊNCIAS</span></h3>
+                <?php $medal = ( $player_total_assists_oficial >= 25 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_assists_oficial >= 50 ) ? 'gold' : $medal; ?>
+                <div class="col text-center">
+                    <h3><span class="badge badge-success">ASSISTÊNCIAS</span></h3>
                     <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
-                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_assists_oficial; ?></span></h3>
+                    <h3 class="mt-2"><span class="badge badge-success"><?php echo $player_total_assists_oficial; ?></span></h3>
                 </div>
             </div>
             <?php endif; ?>
         </div>
         <br />
         <div class="container section-stats">
-            <h4>RACHÃO</h4>
-            <?php if ( 'goleiro' == $player['position'] ) : ?>
+            <h4>RACHÃO <i class="fas fa-info-circle fa-xs align-top" data-toggle="modal" data-target="#modal-help" style="cursor: pointer;"></i></h4>
             <div class="row">
-                <?php $medal = ( $player_total_matches_rachao >= 50 ) ? 'silver' : 'bronze'; ?>
-                <?php $medal = ( $player_total_matches_rachao >= 100 ) ? 'gold' : $medal; ?>
+                <?php $medal = ( $player_total_matches_rachao >= 100 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_matches_rachao >= 200 ) ? 'gold' : $medal; ?>
                 <div class="col text-center">
-                    <h3 class="text-center"><span class="badge badge-success">JOGOS</span></h3>
+                    <h3><span class="badge badge-success">JOGOS</span></h3>
                     <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
-                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_matches_rachao; ?></span></h3>
+                    <h3 class="mt-2"><span class="badge badge-success"><?php echo $player_total_matches_rachao; ?></span></h3>
                 </div>
-                <?php $medal = ( $player_total_blocks_rachao >= 50 ) ? 'silver' : 'bronze'; ?>
-                <?php $medal = ( $player_total_blocks_rachao >= 100 ) ? 'gold' : $medal; ?>
+                <?php $medal = ( $player_total_goals_rachao >= 50 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_goals_rachao >= 100 ) ? 'gold' : $medal; ?>
                 <div class="col text-center">
-                    <h3 class="text-center"><span class="badge badge-success">DEFESAS</span></h3>
+                    <h3><span class="badge badge-success">GOLS</span></h3>
                     <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
-                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_blocks_rachao; ?></span></h3>
+                    <h3 class="mt-2"><span class="badge badge-success"><?php echo $player_total_goals_rachao; ?></span></h3>
+                </div>
+                <?php $medal = ( $player_total_assists_rachao >= 50 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_assists_rachao >= 100 ) ? 'gold' : $medal; ?>
+                <div class="col text-center">
+                    <h3><span class="badge badge-success">ASSISTÊNCIAS</span></h3>
+                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
+                    <h3 class="mt-2"><span class="badge badge-success"><?php echo $player_total_assists_rachao; ?></span></h3>
+                </div>
+                <?php $medal = ( $player_total_blocks_rachao >= 100 ) ? 'silver' : 'bronze'; ?>
+                <?php $medal = ( $player_total_blocks_rachao >= 200 ) ? 'gold' : $medal; ?>
+                <div class="col text-center">
+                    <h3><span class="badge badge-success">DEFESAS</span></h3>
+                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
+                    <h3 class="mt-2"><span class="badge badge-success"><?php echo $player_total_blocks_rachao; ?></span></h3>
                 </div>
             </div>
-            <?php else : ?>
-            <div class="row">
-                <?php $medal = ( $player_total_matches_rachao >= 50 ) ? 'silver' : 'bronze'; ?>
-                <?php $medal = ( $player_total_matches_rachao >= 100 ) ? 'gold' : $medal; ?>
-                <div class="col">
-                    <h3 class="text-center"><span class="badge badge-success">JOGOS</span></h3>
-                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
-                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_matches_rachao; ?></span></h3>
-                </div>
-                <?php $medal = ( $player_total_goals_rachao >= 25 ) ? 'silver' : 'bronze'; ?>
-                <?php $medal = ( $player_total_goals_rachao >= 50 ) ? 'gold' : $medal; ?>
-                <div class="col">
-                    <h3 class="text-center"><span class="badge badge-success">GOLS</span></h3>
-                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
-                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_goals_rachao; ?></span></h3>
-                </div>
-                <?php $medal = ( $player_total_assists_rachao >= 15 ) ? 'silver' : 'bronze'; ?>
-                <?php $medal = ( $player_total_assists_rachao >= 30 ) ? 'gold' : $medal; ?>
-                <div class="col">
-                    <h3 class="text-center"><span class="badge badge-success">ASSISTÊNCIAS</span></h3>
-                    <img src="<?php echo get_template_directory_uri() . '/img/' . $medal . '-medal.png'; ?>" class="img-fluid img-medal" alt="">
-                    <h3 class="text-center mt-2"><span class="badge badge-success"><?php echo $player_total_assists_rachao; ?></span></h3>
-                </div>
-            </div>
-            <?php endif; ?>
         </div>
         <br />
         <div class="container section-stats">
@@ -1052,3 +1040,84 @@ endif;
 
 <br />
 <br />
+
+<!-- Modal -->
+<div class="modal fade" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="container">
+                    <h2 class="modal-title text-center" id="modal-label">Conquistas</h2>
+                </div>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+            </div>
+            <div class="modal-body text-center">
+                <ul class="nav nav-tabs nav-justified jat-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="oficial-tab" data-toggle="tab" href="#oficial" role="tab" aria-controls="oficial" aria-selected="true">Jogos Oficiais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="rachao-tab" data-toggle="tab" href="#rachao" role="tab" aria-controls="rachao" aria-selected="false">Rachão</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="oficial" role="tabpanel" aria-labelledby="oficial-tab">
+                        <ul class="list-group mr-5 mb-4">
+                          <li class="list-group-item text-center"><b>JOGOS</b></li>
+                          <li class="list-group-item list-group-item-danger">Bronze: De 0 a 49 jogos</li>
+                          <li class="list-group-item list-group-item-secondary">Prata: De 50 a 99 jogos</li>
+                          <li class="list-group-item list-group-item-warning">Ouro: 100 ou mais jogos</li>
+                        </ul>
+                        <ul class="list-group mr-5 mb-4">
+                          <li class="list-group-item text-center"><b>GOLS</b></li>
+                          <li class="list-group-item list-group-item-danger">Bronze: De 0 a 24 gols</li>
+                          <li class="list-group-item list-group-item-secondary">Prata: De 25 a 49 gols</li>
+                          <li class="list-group-item list-group-item-warning">Ouro: 50 ou mais gols</li>
+                        </ul>
+                        <ul class="list-group mr-5 mb-4">
+                          <li class="list-group-item text-center"><b>ASSISTÊNCIAS</b></li>
+                          <li class="list-group-item list-group-item-danger">Bronze: De 0 a 24 assistências</li>
+                          <li class="list-group-item list-group-item-secondary">Prata: De 25 a 49 assistências</li>
+                          <li class="list-group-item list-group-item-warning">Ouro: 50 ou mais assistências</li>
+                        </ul>
+                        <ul class="list-group mr-5 mb-4">
+                          <li class="list-group-item text-center"><b>DEFESAS</b></li>
+                          <li class="list-group-item list-group-item-danger">Bronze: De 0 a 49 defesas</li>
+                          <li class="list-group-item list-group-item-secondary">Prata: De 50 a 99 defesas</li>
+                          <li class="list-group-item list-group-item-warning">Ouro: 100 ou mais defesas</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="rachao" role="tabpanel" aria-labelledby="rachao-tab">
+                        <ul class="list-group mr-5 mb-4">
+                          <li class="list-group-item text-center"><b>JOGOS</b></li>
+                          <li class="list-group-item list-group-item-danger">Bronze: De 0 a 99 jogos</li>
+                          <li class="list-group-item list-group-item-secondary">Prata: De 100 a 199 jogos</li>
+                          <li class="list-group-item list-group-item-warning">Ouro: 200 ou mais jogos</li>
+                        </ul>
+                        <ul class="list-group mr-5 mb-4">
+                          <li class="list-group-item text-center"><b>GOLS</b></li>
+                          <li class="list-group-item list-group-item-danger">Bronze: De 0 a 49 gols</li>
+                          <li class="list-group-item list-group-item-secondary">Prata: De 50 a 99 gols</li>
+                          <li class="list-group-item list-group-item-warning">Ouro: 100 ou mais gols</li>
+                        </ul>
+                        <ul class="list-group mr-5 mb-4">
+                          <li class="list-group-item text-center"><b>ASSISTÊNCIAS</b></li>
+                          <li class="list-group-item list-group-item-danger">Bronze: De 0 a 49 assistências</li>
+                          <li class="list-group-item list-group-item-secondary">Prata: De 50 a 99 assistências</li>
+                          <li class="list-group-item list-group-item-warning">Ouro: 100 ou mais assistências</li>
+                        </ul>
+                        <ul class="list-group mr-5 mb-4">
+                          <li class="list-group-item text-center"><b>DEFESAS</b></li>
+                          <li class="list-group-item list-group-item-danger">Bronze: De 0 a 99 defesas</li>
+                          <li class="list-group-item list-group-item-secondary">Prata: De 100 a 199 defesas</li>
+                          <li class="list-group-item list-group-item-warning">Ouro: 200 ou mais defesas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
