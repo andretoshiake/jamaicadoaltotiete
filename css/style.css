@@ -232,7 +232,7 @@ body.single-players .carousel img {
     right: -10rem;
 }
 
-#jat-carousel.carousel .carousel-item img {
+.match-carousel.carousel .carousel-item img {
     max-height: 600px;
     max-width: 720px;
     margin: 0 auto;

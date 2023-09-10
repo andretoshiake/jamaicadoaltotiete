@@ -226,7 +226,7 @@ endif;
                 <div class="tab-pane fade show active" id="carousel" role="tabpanel" aria-labelledby="carousel-tab">
                     <?php $slides = array_filter($match['carousel']); ?>
                     <?php if ( $slides ) : $count = count($slides); ?>
-                        <div id="jat-carousel" class="carousel slide" data-ride="carousel">
+                        <div id="jat-carousel" class="match-carousel carousel slide" data-ride="carousel">
                           <ol class="carousel-indicators">
                             <?php for ( $i=0; $i<$count; $i++ ) : ?>
                             <li data-target="#jat-carousel" data-slide-to="<?php echo $i; ?>" class="<?php echo ($i == 0) ? 'active' : ''; ?>"></li>
