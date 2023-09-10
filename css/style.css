@@ -232,6 +232,13 @@ body.single-players .carousel img {
     right: -10rem;
 }
 
+#jat-carousel.carousel .carousel-item img {
+    max-height: 600px;
+    max-width: 720px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
 .team-page table,
 .tax-season table {
   border-collapse: collapse;
@@ -804,6 +811,63 @@ p:empty {
     display: none;
     padding-right: 0 !important;
     padding-left: 0 !important;
+}
+
+.jat-tabs {
+    margin-left: 0 !important;
+    margin-bottom: 1rem !important;
+}
+
+.jat-tabs a {
+    font-weight: bold;
+    color: #005000;
+}
+
+.jat-tabs a:focus {
+    outline: 0;
+}
+
+.jat-tabs a:hover {
+    color: #005000;
+}
+
+.jat-tabs.nav-tabs .nav-link.active, .jat-tabs.nav-tabs .nav-item.show .nav-link {
+    color: #005000;
+}
+
+#stats .nav-pills .nav-link.active,
+#stats .nav-pills .show > .nav-link,
+#medias .nav-pills .nav-link.active,
+#medias .nav-pills .show > .nav-link,
+#details .nav-pills .nav-link.active,
+#details .nav-pills .show > .nav-link {
+    background-color: #005000;
+}
+
+#stats .nav-pills .nav-link:hover,
+#stats .nav-pills .nav-link:focus,
+#medias .nav-pills .nav-link:hover,
+#medias .nav-pills .nav-link:focus,
+#details .nav-pills .nav-link:hover,
+#details .nav-pills .nav-link:focus {
+    color: #005000;
+}
+
+#stats .nav-pills .nav-link.active:hover,
+#stats .nav-pills .nav-link.active:focus,
+#medias .nav-pills .nav-link.active:hover,
+#medias .nav-pills .nav-link.active:focus,
+#details .nav-pills .nav-link.active:hover,
+#details .nav-pills .nav-link.active:focus {
+    color: #fff;
+}
+
+ul.squad {
+    column-count: 3;
+    line-height: 2;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .no-results.not-found {
