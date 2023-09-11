@@ -1006,36 +1006,40 @@ ul.squad {
 }
 
 @media only screen and (max-width: 767px) {
-  .notfound .notfound-404 {
-    height: 110px;
-    line-height: 110px;
-  }
+    .notfound .notfound-404 {
+        height: 110px;
+        line-height: 110px;
+    }
 
-  .notfound .notfound-404 h1 {
-    font-size: 170px;
-  }
+    .notfound .notfound-404 h1 {
+        font-size: 170px;
+    }
 
-  .notfound h2 {
-    font-size: 24px;
-  }
+    .notfound h2 {
+        font-size: 24px;
+    }
 
-  .notfound .notfound-search {
-    margin: 10px 0px 20px;
-  }
+    .notfound .notfound-search {
+        margin: 10px 0px 20px;
+    }
+
+    .img-medal {
+        max-width: 240px !important;
+    }
 }
 
 @media only screen and (max-width: 480px) {
-  .notfound .notfound-404 {
-    left: 40px;
-  }
+    .notfound .notfound-404 {
+        left: 40px;
+    }
 
-  .notfound .notfound-404 h1 {
-    font-size: 120px;
-  }
+    .notfound .notfound-404 h1 {
+        font-size: 120px;
+    }
 
-  .notfound h2 {
-    font-size: 18px;
-  }
+    .notfound h2 {
+        font-size: 18px;
+    }
 }
 
 @media (min-width: 801px) {
@@ -1188,5 +1192,9 @@ ul.squad {
 
     .player-card-resp {
         display: block;
+    }
+
+    .img-medal {
+        max-width: 120px;
     }
 }
