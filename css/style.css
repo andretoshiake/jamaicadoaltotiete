@@ -878,6 +878,10 @@ ul.squad {
     max-width: 240px;
 }
 
+.social-media {
+    flex-wrap: nowrap !important;
+}
+
 .no-results.not-found {
     padding: 2rem;
     margin-bottom: 5rem;
@@ -1021,10 +1025,6 @@ ul.squad {
 
     .notfound .notfound-search {
         margin: 10px 0px 20px;
-    }
-
-    .img-medal {
-        max-width: 240px !important;
     }
 }
 

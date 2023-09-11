@@ -1,7 +1,7 @@
 <div>
     <div class="container">
         <br />
-        <div class="row">
+        <div class="row social-media">
             <div class="col-md"></div>
             <div class="col-md-1" align="center">
                 <a href="https://www.facebook.com/jamaicadoaltotiete" target="_blank">
