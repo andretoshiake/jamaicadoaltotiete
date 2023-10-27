@@ -26,6 +26,24 @@
             error: function(error){ console.log(error) }
         });
     });
+
+    $('#select-context').on('change', function() {
+        var val = $(this).val();
+
+        if ( val == '-' ) {
+            $('.camp, .oficial').show();
+        }
+
+        if ( val == 'camp' ) {
+            $('.camp').show();
+            $('.oficial').hide();
+        }
+
+        if ( val == 'oficial' ) {
+            $('.camp').hide();
+            $('.oficial').show();
+        }
+    });
 }( jQuery ) );
 
 function openStats(evt, statsName) {

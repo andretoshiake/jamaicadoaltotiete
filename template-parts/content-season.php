@@ -24,7 +24,7 @@ if ( !$season ) {
 }
 
 $time = $_GET['time'];
-$context = ( $time && filter_var($time, FILTER_VALIDATE_INT) && $time == 2 ) ? 'rachao' : 'oficial';
+$context = ( $time && filter_var($time, FILTER_VALIDATE_INT) && $time == 2 ) ? array('rachao') : array('oficial', 'camp');
 $context_label = ( $time && filter_var($time, FILTER_VALIDATE_INT) && $time == 2 ) ? 'RACHÃO' : 'JOGOS OFICIAIS';
 
 $args = array(
@@ -43,7 +43,7 @@ $args = array(
         array(
             'key' => 'fields_context',
             'value' => $context,
-            'compare' => 'LIKE'
+            'compare' => 'IN'
         )
     )
 );
@@ -63,15 +63,29 @@ get_header();
         </div>
     </div>
 
-    <div class="container select-season">
-        <h5>Escolha uma temporada:</h5>
-        <select id="select-season" class="selectpicker" data-live-search="true" data-size="5" onchange="location=this.value;">
-            <?php foreach ( $terms as $term ) : ?>
-                <?php $team = ( $time && filter_var($time, FILTER_VALIDATE_INT) && $time == 2 ) ? '?time=2' : ''; ?>
-                <?php $redirect = dirname($current_url) . '/' . $term->slug . $team; ?>
-                <option value="<?php echo $redirect; ?>" <?php echo ( $season->term_id == $term->term_id ) ? 'selected' : ''; ?>><?php echo $term->name; ?></option>
-            <?php endforeach; ?>
-        </select>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm select-season">
+                <h5>Escolha uma temporada:</h5>
+                <select id="select-season" class="selectpicker" data-live-search="true" data-size="5" onchange="location=this.value;">
+                    <?php foreach ( $terms as $term ) : ?>
+                        <?php $team = ( $time && filter_var($time, FILTER_VALIDATE_INT) && $time == 2 ) ? '?time=2' : ''; ?>
+                        <?php $redirect = dirname($current_url) . '/' . $term->slug . $team; ?>
+                        <option value="<?php echo $redirect; ?>" <?php echo ( $season->term_id == $term->term_id ) ? 'selected' : ''; ?>><?php echo $term->name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <?php if ( in_array('oficial', $context) && in_array('camp', $context) ) : ?>
+                <div class="col-sm select-season">
+                    <h5>Escolha uma competição:</h5>
+                    <select id="select-context" class="selectpicker">
+                        <option value="-">Todas as competições</option>
+                        <option value="camp">Campeonatos</option>
+                        <option value="oficial">Amistosos</option>
+                    </select>
+                </div>
+            <?php endif; ?>
+        </div>
     </div>
 
     <div class="container">
@@ -90,7 +104,7 @@ get_header();
                             <th scope="col">Informações</th>
                         </tr>
                     </thead>
-                    <?php if ( 'rachao' == $context ) : ?>
+                    <?php if ( in_array('rachao', $context) ) : ?>
                     <tbody>
                         <?php if ( $result->have_posts() ) : ?>
                             <?php while( $result->have_posts() ) : $result->the_post(); $match = get_field('fields'); ?>
@@ -100,10 +114,8 @@ get_header();
                                 <td><?php echo $match['goals_team1'] . ' x ' . $match['goals_team2']; ?></td>
                                 <td><h5><span class="badge badge-primary">Time 2 - Azul</span></h5></td>
                                 <td>
-                                    <?php if ( $match['goals_team1'] > 0 || $match['goals_team2'] > 0 ) : ?>
-                                        <!-- Botão para ativar a modal -->
-                                        <button type="button" class="btn btn-sm btn-ajax" data-toggle="modal" data-target="#modal-info" data-match="<?php the_ID(); ?>">Veja Mais...</button>
-                                    <?php endif; ?>
+                                    <!-- Botão para ativar a modal -->
+                                    <button type="button" class="btn btn-sm btn-ajax" data-toggle="modal" data-target="#modal-info" data-match="<?php the_ID(); ?>">Veja Mais...</button>
                                 </td>
                             </tr>
                             <?php endwhile; ?>
@@ -113,16 +125,14 @@ get_header();
                     <tbody>
                         <?php if ( $result->have_posts() ) : ?>
                             <?php while( $result->have_posts() ) : $result->the_post(); $match = get_field('fields'); ?>
-                            <tr>
+                            <tr class="<?php echo $match['context']; ?>">
                                 <th scope="row"><?php echo dirname($match['date']); ?></th>
                                 <td><?php echo ( 'mandante' == $match['local'] ) ? 'JAT' : $match['team']; ?></td>
                                 <td><?php echo $match['goals_team1'] . ' x ' . $match['goals_team2']; ?></td>
                                 <td><?php echo ( 'visitante' == $match['local']  ) ? 'JAT' : $match['team']; ?></td>
                                 <td>
-                                    <?php if ( ( $match['goals_team1'] > 0 && 'mandante' == $match['local'] ) || ( $match['goals_team2'] > 0 && 'visitante' == $match['local'] ) ) : ?>
-                                        <!-- Botão para ativar a modal -->
-                                        <button type="button" class="btn btn-sm btn-ajax" data-toggle="modal" data-target="#modal-info" data-match="<?php the_ID(); ?>">Veja Mais...</button>
-                                    <?php endif; ?>
+                                    <!-- Botão para ativar a modal -->
+                                    <button type="button" class="btn btn-sm btn-ajax" data-toggle="modal" data-target="#modal-info" data-match="<?php the_ID(); ?>">Veja Mais...</button>
                                 </td>
                             </tr>
                             <?php endwhile; ?>

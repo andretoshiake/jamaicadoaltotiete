@@ -227,18 +227,16 @@
                             "class": "",
                             "id": ""
                         },
-                        "user_roles": [
-                            "all"
-                        ],
                         "choices": {
-                            "oficial": "Oficial",
+                            "camp": "Campeonato",
+                            "oficial": "Amistoso",
                             "rachao": "Rachão"
                         },
+                        "default_value": "",
+                        "return_format": "value",
                         "allow_null": 0,
                         "other_choice": 0,
-                        "default_value": "",
                         "layout": "vertical",
-                        "return_format": "value",
                         "save_other_choice": 0
                     },
                     {
@@ -256,6 +254,13 @@
                                     "operator": "==",
                                     "value": "oficial"
                                 }
+                            ],
+                            [
+                                {
+                                    "field": "field_616e4ed83eaeb",
+                                    "operator": "==",
+                                    "value": "camp"
+                                }
                             ]
                         ],
                         "wrapper": {
@@ -263,18 +268,15 @@
                             "class": "",
                             "id": ""
                         },
-                        "user_roles": [
-                            "all"
-                        ],
                         "choices": {
                             "mandante": "Mandante",
                             "visitante": "Visitante"
                         },
+                        "default_value": "",
+                        "return_format": "value",
                         "allow_null": 0,
                         "other_choice": 0,
-                        "default_value": "",
                         "layout": "vertical",
-                        "return_format": "value",
                         "save_other_choice": 0
                     },
                     {
@@ -292,6 +294,13 @@
                                     "operator": "==",
                                     "value": "oficial"
                                 }
+                            ],
+                            [
+                                {
+                                    "field": "field_616e4ed83eaeb",
+                                    "operator": "==",
+                                    "value": "camp"
+                                }
                             ]
                         ],
                         "wrapper": {
@@ -299,14 +308,11 @@
                             "class": "",
                             "id": ""
                         },
-                        "user_roles": [
-                            "all"
-                        ],
                         "default_value": "",
+                        "maxlength": "",
                         "placeholder": "",
                         "prepend": "",
-                        "append": "",
-                        "maxlength": ""
+                        "append": ""
                     },
                     {
                         "key": "field_616623104b872",
