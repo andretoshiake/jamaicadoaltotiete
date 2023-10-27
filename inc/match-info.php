@@ -147,7 +147,7 @@ endif;
                         <?php endforeach; ?>
                     </table>
                     <?php else : ?>
-                        <i>Sem defesas do jogo.</i>
+                        <i>Sem defesas no jogo.</i>
                     <?php endif; ?>
                 </div>
                 <!-- End: Blocks -->
