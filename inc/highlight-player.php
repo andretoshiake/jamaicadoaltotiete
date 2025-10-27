@@ -78,9 +78,9 @@
                         $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
                         $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
                         $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
-                        $player_total_goals   = $player_total_goals + $goals;
-                        $player_total_assists = $player_total_assists + $assists;
-                        $player_total_blocks  = $player_total_blocks + $blocks;
+                        $player_total_goals   = $player_total_goals + (int)$goals;
+                        $player_total_assists = $player_total_assists + (int)$assists;
+                        $player_total_blocks  = $player_total_blocks + (int)$blocks;
                     endwhile;
                 endif;
                 ?>
