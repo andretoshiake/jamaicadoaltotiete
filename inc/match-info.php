@@ -29,7 +29,7 @@ if ( $connected->have_posts() ) :
         if ( $goals ) {
             $player_goals[] = array(
                 'player' => $player,
-                'total'  => $goals
+                'total'  => (int)$goals
             );
         }
         usort($player_goals, function ($item1, $item2) {
@@ -39,7 +39,7 @@ if ( $connected->have_posts() ) :
         if ( $assists ) {
             $player_assists[] = array(
                 'player' => $player,
-                'total'  => $assists
+                'total'  => (int)$assists
             );
         }
         usort($player_assists, function ($item1, $item2) {
@@ -49,7 +49,7 @@ if ( $connected->have_posts() ) :
         if ( $blocks ) {
             $player_blocks[] = array(
                 'player' => $player,
-                'total'  => $blocks
+                'total'  => (int)$blocks
             );
         }
         usort($player_blocks, function ($item1, $item2) {
