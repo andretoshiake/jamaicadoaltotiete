@@ -161,10 +161,10 @@ get_header();
                                     $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
                                     $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
                                     $clean_sheets = p2p_get_meta( get_post()->p2p_id, 'clean_sheets', true );
-                                    $player_total_goals   = $player_total_goals + $goals;
-                                    $player_total_assists = $player_total_assists + $assists;
-                                    $player_total_blocks  = $player_total_blocks + $blocks;
-                                    $player_total_clean_sheets = $player_total_clean_sheets + intval($clean_sheets);
+                                    $player_total_goals   = $player_total_goals + (int)$goals;
+                                    $player_total_assists = $player_total_assists + (int)$assists;
+                                    $player_total_blocks  = $player_total_blocks + (int)$blocks;
+                                    $player_total_clean_sheets = $player_total_clean_sheets + (int)$clean_sheets;
                                 endwhile;
                             endif;
                       
