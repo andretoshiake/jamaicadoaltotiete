@@ -97,9 +97,9 @@ if ( $connected->have_posts() ) :
             $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
             $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
             $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
-            $total_goals_oficial   = $total_goals_oficial + $goals;
-            $total_assists_oficial = $total_assists_oficial + $assists;
-            $total_blocks_oficial  = $total_blocks_oficial + $blocks;
+            $total_goals_oficial   = $total_goals_oficial + (int)$goals;
+            $total_assists_oficial = $total_assists_oficial + (int)$assists;
+            $total_blocks_oficial  = $total_blocks_oficial + (int)$blocks;
         endforeach;
         wp_reset_postdata(); // set $post back to original post
     endwhile;
@@ -126,10 +126,10 @@ if ( $connected->have_posts() ) :
         $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
         $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
         $clean_sheets = p2p_get_meta( get_post()->p2p_id, 'clean_sheets', true );
-        $player_total_goals_oficial   = $player_total_goals_oficial + $goals;
-        $player_total_assists_oficial = $player_total_assists_oficial + $assists;
-        $player_total_blocks_oficial  = $player_total_blocks_oficial + $blocks;
-        $player_total_clean_sheets_oficial = $player_total_clean_sheets_oficial + intval($clean_sheets);
+        $player_total_goals_oficial   = $player_total_goals_oficial + (int)$goals;
+        $player_total_assists_oficial = $player_total_assists_oficial + (int)$assists;
+        $player_total_blocks_oficial  = $player_total_blocks_oficial + (int)$blocks;
+        $player_total_clean_sheets_oficial = $player_total_clean_sheets_oficial + (int)$clean_sheets;
     endwhile;
 endif;
 /********** End: Stats Jogos Oficiais **********/
@@ -206,9 +206,9 @@ if ( $connected->have_posts() ) :
             $goals   = p2p_get_meta( get_post()->p2p_id, 'goals', true );
             $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
             $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
-            $total_goals_rachao   = $total_goals_rachao + $goals;
-            $total_assists_rachao = $total_assists_rachao + $assists;
-            $total_blocks_rachao  = $total_blocks_rachao + $blocks;
+            $total_goals_rachao   = $total_goals_rachao + (int)$goals;
+            $total_assists_rachao = $total_assists_rachao + (int)$assists;
+            $total_blocks_rachao  = $total_blocks_rachao + (int)$blocks;
         endforeach;
         wp_reset_postdata(); // set $post back to original post
     endwhile;
@@ -235,10 +235,10 @@ if ( $connected->have_posts() ) :
         $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
         $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
         $clean_sheets = p2p_get_meta( get_post()->p2p_id, 'clean_sheets', true );
-        $player_total_goals_rachao   = $player_total_goals_rachao + $goals;
-        $player_total_assists_rachao = $player_total_assists_rachao + $assists;
-        $player_total_blocks_rachao  = $player_total_blocks_rachao + $blocks;
-        $player_total_clean_sheets_rachao = $player_total_clean_sheets_rachao + intval($clean_sheets);
+        $player_total_goals_rachao   = $player_total_goals_rachao + (int)$goals;
+        $player_total_assists_rachao = $player_total_assists_rachao + (int)$assists;
+        $player_total_blocks_rachao  = $player_total_blocks_rachao + (int)$blocks;
+        $player_total_clean_sheets_rachao = $player_total_clean_sheets_rachao + (int)$clean_sheets;
     endwhile;
 endif;
 /********** End: Stats Rachão **********/
@@ -423,10 +423,10 @@ $terms = get_terms( array(
                             $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
                             $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
                             $clean_sheets = p2p_get_meta( get_post()->p2p_id, 'clean_sheets', true );
-                            $player_total_goals   = $player_total_goals + $goals;
-                            $player_total_assists = $player_total_assists + $assists;
-                            $player_total_blocks  = $player_total_blocks + $blocks;
-                            $player_total_clean_sheets = $player_total_clean_sheets + intval($clean_sheets);
+                            $player_total_goals   = $player_total_goals + (int)$goals;
+                            $player_total_assists = $player_total_assists + (int)$assists;
+                            $player_total_blocks  = $player_total_blocks + (int)$blocks;
+                            $player_total_clean_sheets = $player_total_clean_sheets + (int)$clean_sheets;
                         endwhile;
                     endif;
               
@@ -585,10 +585,10 @@ $terms = get_terms( array(
                             $assists = p2p_get_meta( get_post()->p2p_id, 'assists', true );
                             $blocks  = p2p_get_meta( get_post()->p2p_id, 'blocks', true );
                             $clean_sheets = p2p_get_meta( get_post()->p2p_id, 'clean_sheets', true );
-                            $player_total_goals   = $player_total_goals + $goals;
-                            $player_total_assists = $player_total_assists + $assists;
-                            $player_total_blocks  = $player_total_blocks + $blocks;
-                            $player_total_clean_sheets = $player_total_clean_sheets + intval($clean_sheets);
+                            $player_total_goals   = $player_total_goals + (int)$goals;
+                            $player_total_assists = $player_total_assists + (int)$assists;
+                            $player_total_blocks  = $player_total_blocks + (int)$blocks;
+                            $player_total_clean_sheets = $player_total_clean_sheets + (int)$clean_sheets;
                         endwhile;
                     endif;
               
