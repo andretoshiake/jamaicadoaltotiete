@@ -665,12 +665,14 @@ endif;
     <!-- Start: Aba Atributos -->
     <?php if ( 'goleiro' == $player['position'] ) : ?>
     <div id="skills" class="tabcontent" style="background-color: white;" >
-        <br />
         <div class="container">
+            <?php if ( !empty($fields['card']) ) : ?>
+            <br />
             <center>
                 <img src="<?php echo esc_url($fields['card']['url']); ?>" style="width: 50%;">    
             </center>
             <br />
+            <?php endif; ?>
             <?php $color = ( $geral_goleiro < 80 ) ? '#E9B925' : 'green'; ?>
             <h3><strong class="rating">GERAL <span style="color: <?php echo $color; ?>;"><?php echo $geral_goleiro; ?></span></strong></h3>
             <hr style="border: 2px solid <?php echo $color; ?>;">
@@ -721,12 +723,14 @@ endif;
     </div>
     <?php else : ?>
     <div id="skills" class="tabcontent" style="background-color: white;" >
-        <br />
         <div class="container">
+            <?php if ( !empty($fields['card']) ) : ?>
+            <br />
             <center>
                 <img src="<?php echo esc_url($fields['card']['url']); ?>" style="width: 50%;">    
             </center>
             <br />
+            <?php endif; ?>
             <?php $color = ( $geral < 80 ) ? '#E9B925' : 'green'; ?>
             <h3><strong class="rating">GERAL <span style="color: <?php echo $color; ?>;"><?php echo $geral; ?></span></strong></h3>
             <hr style="border: 2px solid <?php echo $color; ?>;">
