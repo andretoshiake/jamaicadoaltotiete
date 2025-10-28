@@ -665,9 +665,9 @@ endif;
     <!-- Start: Aba Atributos -->
     <?php if ( 'goleiro' == $player['position'] ) : ?>
     <div id="skills" class="tabcontent" style="background-color: white;" >
+        <br />
         <div class="container">
             <?php if ( !empty($fields['card']) ) : ?>
-            <br />
             <center>
                 <img src="<?php echo esc_url($fields['card']['url']); ?>" style="width: 50%;">    
             </center>
@@ -723,9 +723,9 @@ endif;
     </div>
     <?php else : ?>
     <div id="skills" class="tabcontent" style="background-color: white;" >
+        <br />
         <div class="container">
             <?php if ( !empty($fields['card']) ) : ?>
-            <br />
             <center>
                 <img src="<?php echo esc_url($fields['card']['url']); ?>" style="width: 50%;">    
             </center>
